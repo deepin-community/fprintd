@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+# Ask D-Bus to reload its configuration.
+if [ "$1" = configure -a -x "/etc/init.d/dbus" ]; then
+	invoke-rc.d dbus force-reload || true
+fi
+
+#DEBHELPER#
+
+exit 0

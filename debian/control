@@ -1,0 +1,70 @@
+Source: fprintd
+Section: misc
+Priority: optional
+Maintainer: FingerForce Team <fingerforce-devel@lists.alioth.debian.org>
+Uploaders: Marco Trevisan <marco@ubuntu.com>
+Build-Depends: debhelper-compat (= 13),
+               dh-exec,
+               libfprint-2-dev (>= 1:1.94.0),
+               libglib2.0-dev (>= 2.56),
+               libpam0g-dev,
+               libpolkit-gobject-1-dev,
+               libsystemd-dev (>= 235) [linux-any],
+               meson (>= 0.50.0),
+               policykit-1,
+               python3,
+               python3-cairo,
+               python3-dbus,
+               python3-dbusmock,
+               python3-gi <!nocheck>,
+               python3-pypamtest,
+               libpam-wrapper,
+               libxml2-utils <!nocheck>
+Build-Depends-Indep: gtk-doc-tools <!nodoc>, xsltproc <!nodoc>
+Standards-Version: 4.5.1
+Homepage: https://www.freedesktop.org/wiki/Software/fprint/fprintd
+Vcs-Git: https://salsa.debian.org/debian/fprintd.git
+Vcs-Browser: https://salsa.debian.org/debian/fprintd
+
+Package: fprintd
+Architecture: any
+Multi-Arch: foreign
+Depends: dbus, policykit-1, ${misc:Depends}, ${shlibs:Depends}
+Description: D-Bus daemon for fingerprint reader access
+ fprintd is a D-Bus daemon that offers libfprint functionality over the
+ D-Bus interprocess communication bus. By adding this daemon layer above
+ libfprint, various problems related to multiple applications simultaneously
+ competing for fingerprint readers get solved.
+
+Package: libpam-fprintd
+Architecture: any
+Section: admin
+Depends: fprintd (= ${binary:Version}),
+         libpam-runtime (>= 1.1.3-2~),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Description: PAM module for fingerprint authentication through fprintd
+ fprintd is a D-Bus daemon that offers libfprint functionality over the
+ D-Bus interprocess communication bus. By adding this daemon layer above
+ libfprint, various problems related to multiple applications simultaneously
+ competing for fingerprint readers get solved.
+ .
+ This package provides a PAM module for fingerprint-based authentication
+ via fprintd.
+
+Package: fprintd-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}
+Suggests: fprintd (>= ${source:Version}), libpam-fprintd (>= ${source:Version})
+Build-Profiles: <!nodoc>
+Multi-Arch: foreign
+Description: development documentation for fprintd
+ fprintd is a D-Bus daemon that offers libfprint functionality over the
+ D-Bus interprocess communication bus. By adding this daemon layer above
+ libfprint, various problems related to multiple applications simultaneously
+ competing for fingerprint readers get solved.
+ .
+ This package contains the GTK-Doc API documentation of fprintd.

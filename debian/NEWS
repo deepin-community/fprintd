@@ -1,0 +1,9 @@
+fprintd (1.90.1-1) experimental; urgency=medium
+
+  Since version 1.90.1, the format of the fingerprints database changed.
+
+  That means that each users will have to re-enroll their fingerprints either
+  using fprintd-enroll(1) or the desktop environment specific way (ie. via
+  gnome-control-center if you are using GNOME).
+
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 15 Nov 2020 15:47:25 +0100

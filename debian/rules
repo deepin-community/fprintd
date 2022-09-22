@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+
+DEB_HOST_ARCH ?= $(shell dpkg-architecture -qDEB_HOST_ARCH)
+
+%:
+	dh $@
+
+# Configuration arguments
+CONFIG_ARGS = -Dpam=true
+BUILDDIR = $(CURDIR)/obj-$(DEB_HOST_GNU_TYPE)
+
+ifeq ($(DEB_HOST_ARCH_OS),linux)
+	CONFIG_ARGS += -Dsystemd_system_unit_dir=/lib/systemd/system
+else
+	CONFIG_ARGS += -Dsystemd=false
+endif
+
+ifneq (,$(filter fprintd-doc,$(shell dh_listpackages)))
+	CONFIG_ARGS += -Dgtk_doc=true
+endif
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(CONFIG_ARGS)
+
+override_dh_auto_test:
+	dh_auto_test -- -C $(BUILDDIR) --print-errorlogs --timeout-multiplier 5

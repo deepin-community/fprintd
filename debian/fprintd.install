@@ -1,0 +1,16 @@
+#!/usr/bin/dh-exec
+
+etc/fprintd.conf
+[linux-any] lib/systemd/system/fprintd.service
+usr/bin/fprintd-delete
+usr/bin/fprintd-enroll
+usr/bin/fprintd-list
+usr/bin/fprintd-verify
+usr/libexec/fprintd
+usr/share/dbus-1/interfaces/net.reactivated.Fprint.Device.xml
+usr/share/dbus-1/interfaces/net.reactivated.Fprint.Manager.xml
+usr/share/dbus-1/system-services/net.reactivated.Fprint.service
+usr/share/dbus-1/system.d/net.reactivated.Fprint.conf
+usr/share/locale/*/LC_MESSAGES/fprintd.mo
+usr/share/man/man1/fprintd.1
+usr/share/polkit-1/actions/net.reactivated.fprint.device.policy

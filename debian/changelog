@@ -1,0 +1,299 @@
+fprintd (1.94.1-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/patches: Drop, all was applied upstream
+  * debian/pam-configs/fprintd: Use proper max-tries config name
+    (Closes: #997667)
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Wed, 03 Nov 2021 17:05:11 +0100
+
+fprintd (1.94.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/control: Build depend on libfprint 1.94
+  * debian/patches: Fix builds with meson 60
+  * debian/rules: Just use verbose logging on errors
+  * debian/patches: Cherry-pick upstream fixes and translation updates
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Thu, 28 Oct 2021 15:39:31 +0200
+
+fprintd (1.90.9-1) unstable; urgency=medium
+
+  [ Marco Trevisan (Treviño) ]
+  * New upstream release:
+    - Fix multiple daemon lockup issues (#97)
+    - Fix print garbage collection to not delete used prints
+    - pam: Use the device with the most prints
+  * debian/control: Mark fprintd-doc as Multi-Arch: foreign
+
+  [ Helmut Grohne ]
+  * Fix nocheck FTFBS: Drop <!nocheck> from non-optional dependencies.
+    (Closes: #977395)
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Thu, 21 Jan 2021 21:29:07 +0100
+
+fprintd (1.90.8-1) unstable; urgency=medium
+
+  * New upstream release
+    - pam: Only listen to NameOwnerChanged after fprintd is known to run
+    - Place new ObjectManager DBus API at /net/reactivated/Fprint
+  * debian/patches: Remove all patches, applied upstream or not needed anymore
+  * debian/control: Depend on systemd 235, but only in linux
+  * debian/rules: Require systemd and set unit path only on linux
+  * debian/fprintd.install: Use dh-exec to filter linux-only files
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Mon, 14 Dec 2020 21:32:29 +0100
+
+fprintd (1.90.7-1) unstable; urgency=medium
+
+  * New upstream release
+    - Fix fprintd DBus configuration (Closes: #976990)
+    - Change details of what requires authorization
+    - Fix various race conditions in pam_fprintd
+    - Permit interactive authorization from fprintd utilities
+    - Do not allow deletion while another operation is ongoing
+    - pam: Guard strdup calls against NULL pointers
+  * debian/patches:
+    - Refresh
+    - Ignore NameOwnerChanged until fprintd is running
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Fri, 11 Dec 2020 00:03:27 +0100
+
+fprintd (1.90.5-2) unstable; urgency=medium
+
+  * debian/patches: Make tests run with actual required libfprint version
+  * debian/control: Remove test-only dependency on libfprint 1.90.4.
+    Tests are now working with older libfprint versions too
+  * debian/control: Add myself to Uploaders
+  * debian/gbp.conf: Include suggested settings by GNOME team.
+    Even if fprintd is not part of GNOME I think these settings are good
+    practice anyways.
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Thu, 03 Dec 2020 15:57:19 +0100
+
+fprintd (1.90.5-1) unstable; urgency=medium
+
+  * New upstream release:
+    - Permit building with polkit older than 0.114
+    - Fix possible issues with PAM test
+    - Fix incorrect DBus policy
+    - Fix build so that CFLAGS environment is correctly used
+    - Skip hotplug test with older libfprint (which times out otherwise)
+  * debian/patches: Drop patches applied upstream
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Wed, 02 Dec 2020 05:35:33 +0100
+
+fprintd (1.90.4-1) unstable; urgency=medium
+
+  * Team upload.
+  [ Marco Trevisan (Treviño) ]
+  * New upstream release:
+    - Use GDBus and async Polkit checks
+    - Authentication is now required to enroll a new print (LP: #1532264,
+      Closes: #719004)
+    - Add support for the libfprint early reporting mechanism
+    - Proper hotplug support together with libfprint 1.90.4
+    - Handle STATE_DIRECTORY containing multiple paths
+    - Various memory fixes (LP: #1888495)
+  * debian/control:
+    - Remove build dependency on dbus-glib (Closes: #955893)
+    - Mark as <!nocheck> the packages required only for testing
+    - Use debhelper 13
+    - Bump libfprint-2 dependency on 1.90.4 on test case
+  * debian/rules:
+    - remove unneeded override to force --fail-missing (as per dh 13)
+    - Increase tests timeout multiplier
+  * debian/patches:
+    - Refresh
+    - Define auto-pointers functions if not defined:
+      Fixes a build failure with debian polkit version.
+    - Cleanup pam-wrapper temporary dir when running tests
+    - Fix dbus-policy file to address lintian
+    - Ensure we generate debug symbols in debian builds
+
+  [ Laurent Bigonville ]
+  * debian/control: Bump Standards-Version to 4.5.1 (no further changes)
+
+ -- Laurent Bigonville <bigon@debian.org>  Tue, 01 Dec 2020 13:06:59 +0100
+
+fprintd (1.90.1-2) unstable; urgency=low
+
+  * Team upload.
+  * Simplify the installation of the pam-config, do not install one
+    configuration file per architecture
+  * debian/NEWS: Add an news entry explaining that the user will have to
+    re-enroll their fingerprints upon update to 1.90.1.
+
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 15 Nov 2020 16:22:57 +0100
+
+fprintd (1.90.1-1) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream release
+    - Switch to meson (Closes: #830015)
+    - Adjust the build-dependencies
+  * debian/control: Bump Standards-Version to 4.5.0 (no further changes)
+  * debian/control: Mark the -doc package with Build-Profiles: <!nodoc> and
+    move gtk-doc-tools to the B-D-I
+
+ -- Laurent Bigonville <bigon@debian.org>  Wed, 19 Feb 2020 14:01:10 +0100
+
+fprintd (0.9.0-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release
+  * Add debian/gbp.conf file
+  * debian/control: Update the Vcs-* fields, it's now hosted on salsa
+  * debian/patches/remove_unneeded_systemd_check.patch: Do not check the
+    version of systemd at build-time, this is not needed
+  * fprint-doc: Add a symlink in /usr/share/doc and adjust the .doc-base file
+    to please lintian
+  * debian/control: Bump Standards-Version to 4.4.1 (no further changes)
+  * Bump debhelper compatibility to 12, switch to dh_missing
+  * Install the daemon in /usr/libexec/ now that the policy allows it
+
+ -- Laurent Bigonville <bigon@debian.org>  Sat, 11 Jan 2020 12:54:27 +0100
+
+fprintd (0.8.1-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release
+  * debian/control: Bump Standards-Version to 4.2.1 (no further changes)
+  * debian/watch: Point to freedesktop gitlab
+
+ -- Laurent Bigonville <bigon@debian.org>  Sat, 08 Sep 2018 11:23:58 +0200
+
+fprintd (0.8.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * Do not add libpam-fprintd to the common-auth PAM service, existing
+    installation shouldn't be affected. This will also mitigate bug #719004,
+    adding the module to common-auth by default doesn't sound like a good idea
+    in the first place as further configuration is probably needed anyway.
+    (Closes: #881186)
+  * debian/control:
+    - Move the package to Priority: optional, the extra priority is deprecated
+    - Bump Standards-Version to 4.1.1 (no further changes)
+  * debian/rules: Use ?= operator instead of := when assigning DEB_HOST_ARCH,
+    thanks to lintian
+
+ -- Laurent Bigonville <bigon@debian.org>  Wed, 08 Nov 2017 19:23:05 +0100
+
+fprintd (0.8.0-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release
+  * debian/control: Add rename to the build-dependencies (Closes: #874040)
+  * debian/control: Bump Standards-Version to 4.1.0 (no further changes)
+  * Bump Debhelper compatibility to 10
+  * debian/rules: Rely on dh_autoreconf instead of calling autotools manually
+
+ -- Laurent Bigonville <bigon@debian.org>  Wed, 13 Sep 2017 18:07:00 +0200
+
+fprintd (0.7.0-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release
+    - Drop debian/patches/ufa31b0a-update-translations-add-21-of-them.patch,
+      applied upstream
+  * Move fprintd daemon from /usr/sbin to /usr/lib/fprintd directory, the
+    daemon is not supposed to be run manually by users
+  * debian/control: Use https for Vcs-* and Homepage fields to please lintian
+  * debian/rules: Move the --fail-missing flag from dh call to dh_install ones
+  * Add debian/watch file
+
+ -- Laurent Bigonville <bigon@debian.org>  Fri, 02 Dec 2016 18:09:53 +0100
+
+fprintd (0.6.0-2.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Add intltool to build-dep, preparing for the deprecation of gnome-common,
+    Fixes FTBFS. (Closes: #837823).
+
+ -- gustavo panizzo <gfa@zumbi.com.ar>  Mon, 24 Oct 2016 20:40:42 +0800
+
+fprintd (0.6.0-2) unstable; urgency=medium
+
+  [ Santiago Vila ]
+  * Fix FTBFS when building arch-indep only (Closes: #806026)
+
+  [ Didier Raboud ]
+  * Bump S-V to 3.9.8 without changes needed
+
+ -- Didier Raboud <odyx@debian.org>  Wed, 08 Jun 2016 21:32:01 +0200
+
+fprintd (0.6.0-1) unstable; urgency=medium
+
+  * New 0.6.0 upstream release
+
+  * Update patches:
+    - Backport the upstream translation update for 0.6.0
+    - Drop the syntax error fix in fprintd.pod patch, which was from upstream
+  * Uses a wildcard match to install the translation files
+  * Bump libfprint Build-Depends to 0.6
+
+  [ Barak A. Pearlmutter ]
+  * Fix two typos in package descriptions (Closes: #752377)
+
+ -- Didier Raboud <odyx@debian.org>  Wed, 06 May 2015 18:17:08 +0200
+
+fprintd (0.5.1-1) unstable; urgency=low
+
+  * New 0.5.1 upstream release (Closes: #721717)
+
+  [ Didier Raboud ]
+  * Drop 'max_tries and timeout' patch, incorporated upstream
+  * Bump libfprint-dev Build-Depends to 0.5.1
+  * Backport bugfix from upstream:
+    - data: Fix syntax error in fprintd.pod
+
+  [ Michael Biebl ]
+  * Install systemd service file (Closes: #717767)
+    - point to correct systemdsystemunitdir in CONFIG_ARGS
+    - update 0_put_fprint_daemon_in_sbin to correct the systemd unit
+      file
+
+ -- Didier Raboud <odyx@debian.org>  Sun, 29 Sep 2013 15:37:35 +0200
+
+fprintd (0.5.0-1) unstable; urgency=low
+
+  * New 0.5.0 upstream release.
+  * Replace our 'max_tries and timeout' patch with the cleaned version
+    accepted by upstream.
+
+ -- Didier Raboud <odyx@debian.org>  Sat, 18 May 2013 17:46:02 +0200
+
+fprintd (0.4.1-20-g9ea025d-1) experimental; urgency=low
+
+  * New upstream git snapshot including many translation fixes.
+
+  [ Luca Capello ]
+  * debian/libpam-fprintd.docs:
+    + add upstream README (Closes: #680050).
+
+  [ Didier Raboud ]
+  * Bump libfprint-dev Build-Depends to 0.5.0-2~.
+  * Install new translations.
+  * Bump Standards-Version to 3.9.4 without changes needed.
+
+ -- Didier Raboud <odyx@debian.org>  Sun, 03 Mar 2013 13:04:41 +0100
+
+fprintd (0.4.1-5-g73edad0-3) unstable; urgency=low
+
+  * Upload to unstable.
+  * Build in verbose mode.
+
+ -- Didier Raboud <odyx@debian.org>  Sun, 27 May 2012 18:28:38 +0200
+
+fprintd (0.4.1-5-g73edad0-2) experimental; urgency=low
+
+  * Fix typo in FingerForce maintainer address.
+
+ -- Didier Raboud <odyx@debian.org>  Mon, 14 May 2012 23:09:47 +0200
+
+fprintd (0.4.1-5-g73edad0-1) experimental; urgency=low
+
+  * Initial release (Closes: #502138, LP: #376540, #346083).
+    - Largely inspired from David Jurenka's Ubuntu PPA; thanks to him!
+
+ -- Didier Raboud <odyx@debian.org>  Mon, 14 May 2012 22:07:37 +0200

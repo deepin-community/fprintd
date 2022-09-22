@@ -1,0 +1,5 @@
+version=4
+
+opts=versionmangle=s/_/./g \
+  https://gitlab.freedesktop.org/libfprint/@PACKAGE@/tags \
+  .*\/archive\/[Vv]_?([\d_\+\.]+)\/@PACKAGE@-.*@ARCHIVE_EXT@

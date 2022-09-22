@@ -1,0 +1,8 @@
+Document: fprintd-doc
+Title: fprintd Reference Manual
+Author: Bastien Nocera
+Section: System/Hardware
+
+Format: HTML
+Index: /usr/share/doc/fprintd-doc/html/index.html
+Files: /usr/share/doc/fprintd-doc/html/*.html
