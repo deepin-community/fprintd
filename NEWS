@@ -1,6 +1,17 @@
 This file lists notable changes in each release. For the full history of all
 changes, see ChangeLog.
 
+Version 1.94.2:
+
+API users, please adjust now to planned API changes in 2.0:
+ - EnrollStart will throw an error if the finger was enrolled already
+ - Interactive DBus authentication will only happen when requested
+
+Highlights:
+ - Add PAM module options to ignore timeout/retry limits
+ - A lot of translation updates after the POT file was fixed
+ - Improve meson build file and fix building with meson 0.61.0
+
 Version 1.94.1:
 
 API users, please adjust now to planned API changes in 2.0:

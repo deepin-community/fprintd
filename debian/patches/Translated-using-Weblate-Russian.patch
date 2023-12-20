@@ -1,0 +1,95 @@
+From: Weblate <noreply@weblate.org>
+Date: Tue, 10 May 2022 09:54:42 +0200
+Subject: Translated using Weblate (Russian)
+
+Currently translated at 100.0% (60 of 60 strings)
+
+Co-authored-by: Sergey A <sw@atrus.ru>
+Translate-URL: https://translate.fedoraproject.org/projects/fprintd/fprintd/ru/
+Translation: fprintd/fprintd
+
+Origin: https://gitlab.freedesktop.org/libfprint/fprintd/-/commit/20e9bb12
+---
+ po/ru.po | 29 ++++++++++++++---------------
+ 1 file changed, 14 insertions(+), 15 deletions(-)
+
+diff --git a/po/ru.po b/po/ru.po
+index 5e1d8c6..bd72357 100644
+--- a/po/ru.po
++++ b/po/ru.po
+@@ -5,13 +5,14 @@
+ # Translators:
+ # Yuri Kozlov <yuray@komyakino.ru>, 2011, 2012
+ # D P <dpokrasko@gmail.com>, 2021.
++# Sergey A. <sw@atrus.ru>, 2022.
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: fprintd\n"
+ "Report-Msgid-Bugs-To: \n"
+ "POT-Creation-Date: 2021-12-02 10:58+0100\n"
+-"PO-Revision-Date: 2021-12-08 12:16+0000\n"
+-"Last-Translator: D P <dpokrasko@gmail.com>\n"
++"PO-Revision-Date: 2022-05-10 07:54+0000\n"
++"Last-Translator: Sergey A. <sw@atrus.ru>\n"
+ "Language-Team: Russian <https://translate.fedoraproject.org/projects/fprintd/"
+ "fprintd/ru/>\n"
+ "Language: ru\n"
+@@ -21,7 +22,7 @@ msgstr ""
+ "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+ "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+ "%100>=11 && n%100<=14)? 2 : 3);\n"
+-"X-Generator: Weblate 4.9.1\n"
++"X-Generator: Weblate 4.12.1\n"
+ 
+ #: data/net.reactivated.fprint.device.policy.in:13
+ msgid "Verify a fingerprint"
+@@ -32,25 +33,24 @@ msgid "Privileges are required to verify fingerprints."
+ msgstr "Для проверки отпечатков пальцев требуются права доступа."
+ 
+ #: data/net.reactivated.fprint.device.policy.in:23
+-#, fuzzy
+ msgid "Enroll or Delete fingerprints"
+-msgstr "Ввод новых отпечатков пальцев"
++msgstr "Регистрация или удаление отпечатков пальцев"
+ 
+ #: data/net.reactivated.fprint.device.policy.in:24
+-#, fuzzy
+ msgid "Privileges are required to enroll or delete fingerprints."
+-msgstr "Для ввода отпечатков пальцев требуются права доступа."
++msgstr ""
++"Для регистрации или удаления отпечатков пальцев требуются соответствующие "
++"права доступа."
+ 
+ #: data/net.reactivated.fprint.device.policy.in:33
+-#, fuzzy
+ msgid "Select a user to manage fingerprints for"
+-msgstr "Выбор пользователя для ввода отпечатков пальцев"
++msgstr "Выберите пользователя для управления отпечатками пальцев"
+ 
+ #: data/net.reactivated.fprint.device.policy.in:34
+-#, fuzzy
+ msgid "Privileges are required to manage fingerprints for other users."
+ msgstr ""
+-"Для ввода отпечатков пальцев других пользователей требуются права доступа."
++"Для управления отпечатками пальцев других пользователей требуются "
++"соответствующие права доступа."
+ 
+ #: src/device.c:783
+ #, c-format
+@@ -282,13 +282,12 @@ msgstr "Уберите палец и попробуйте провести ещ
+ 
+ #: pam/pam_fprintd.c:537
+ msgid "Verification timed out"
+-msgstr ""
++msgstr "Превышено время проверки"
+ 
+ #: pam/pam_fprintd.c:542
+-#, fuzzy
+ msgid "Failed to match fingerprint"
+-msgstr "Проверка отпечатков пальцев"
++msgstr "Не удалось установить соответствие отпечатка"
+ 
+ #: pam/pam_fprintd.c:580
+ msgid "An unknown error occurred"
+-msgstr ""
++msgstr "Произошла неизвестная ошибка"

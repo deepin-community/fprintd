@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
 "PO-Revision-Date: 2017-09-19 09:08+0000\n"
 "Last-Translator: kelemeng <kelemeng@ubuntu.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/freedesktop/fprintd/"
@@ -28,28 +28,32 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "Jogosultság szükséges az ujjlenyomatok ellenőrzéséhez."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
+#, fuzzy
+msgid "Enroll or Delete fingerprints"
 msgstr "Új ujjlenyomatok felvétele"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
+#, fuzzy
+msgid "Privileges are required to enroll or delete fingerprints."
 msgstr "Jogosultság szükséges új ujjlenyomatok felvételéhez."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
+#, fuzzy
+msgid "Select a user to manage fingerprints for"
 msgstr "Válassza ki a felveendő felhasználót"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
+#, fuzzy
+msgid "Privileges are required to manage fingerprints for other users."
 msgstr ""
 "Jogosultság szükséges új ujjlenyomatok felvételéhez más felhasználóknak."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Az eszközt használat előtt nem foglalták le"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "Az eszközt már másik felhasználó használja"
@@ -276,11 +280,11 @@ msgstr "Vegye el az ujját és próbálja újra lehúzni"
 msgid "Verification timed out"
 msgstr ""
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 #, fuzzy
 msgid "Failed to match fingerprint"
 msgstr "Ujjlenyomat ellenőrzése"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr ""
