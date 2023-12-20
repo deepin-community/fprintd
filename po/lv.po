@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
 "PO-Revision-Date: 2017-09-19 10:32+0000\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian (http://www.transifex.com/freedesktop/fprintd/"
@@ -30,30 +30,34 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "Ir nepieciešamas privilēģijas, lai pārbaudītu pirkstu nospiedumus."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
+#, fuzzy
+msgid "Enroll or Delete fingerprints"
 msgstr "Reģistrēt jaunus pirkstu nospiedumus"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
+#, fuzzy
+msgid "Privileges are required to enroll or delete fingerprints."
 msgstr ""
 "Ir nepieciešamas privilēģijas, lai reģistrētu jaunus pirkstu nospiedumus."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
+#, fuzzy
+msgid "Select a user to manage fingerprints for"
 msgstr "Izvēlieties lietotāju, kuram reģistrēt"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
+#, fuzzy
+msgid "Privileges are required to manage fingerprints for other users."
 msgstr ""
 "Ir nepieciešamas privilēģijas, lai reģistrētu citu lietotāju pirkstu "
 "nospiedumus."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Ierīce nav norādīta pirms lietošanas"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "Ierīci jau lieto cits lietotājs"
@@ -280,11 +284,11 @@ msgstr "Noņemt pirkstu un mēģiniet vilkt pirkstu vēlreiz"
 msgid "Verification timed out"
 msgstr ""
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 #, fuzzy
 msgid "Failed to match fingerprint"
 msgstr "Pārbaudīt pirkstu nospiedumu"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr ""

@@ -4,15 +4,16 @@
 #
 # Translators:
 # Yuri Kozlov <yuray@komyakino.ru>, 2011, 2012
+# D P <dpokrasko@gmail.com>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
-"PO-Revision-Date: 2017-09-19 09:46+0000\n"
-"Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
-"Language-Team: Russian (http://www.transifex.com/freedesktop/fprintd/"
-"language/ru/)\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
+"PO-Revision-Date: 2021-12-08 12:16+0000\n"
+"Last-Translator: D P <dpokrasko@gmail.com>\n"
+"Language-Team: Russian <https://translate.fedoraproject.org/projects/fprintd/"
+"fprintd/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,6 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Generator: Weblate 4.9.1\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -30,28 +32,32 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "Для проверки отпечатков пальцев требуются права доступа."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
+#, fuzzy
+msgid "Enroll or Delete fingerprints"
 msgstr "Ввод новых отпечатков пальцев"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
+#, fuzzy
+msgid "Privileges are required to enroll or delete fingerprints."
 msgstr "Для ввода отпечатков пальцев требуются права доступа."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
+#, fuzzy
+msgid "Select a user to manage fingerprints for"
 msgstr "Выбор пользователя для ввода отпечатков пальцев"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
+#, fuzzy
+msgid "Privileges are required to manage fingerprints for other users."
 msgstr ""
 "Для ввода отпечатков пальцев других пользователей требуются права доступа."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Устройство не затребовано перед использованием"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "Устройство уже используется другим пользователем"
@@ -103,7 +109,7 @@ msgstr "Положите указательный палец левой руки
 
 #: pam/fingerprint-strings.h:62
 msgid "Swipe your left index finger across the fingerprint reader"
-msgstr "Проведите указанным пальцем левой руки по считывающему устройству"
+msgstr "Проведите указательным пальцем левой руки по считывающему устройству"
 
 #: pam/fingerprint-strings.h:63
 #, c-format
@@ -193,7 +199,7 @@ msgstr "Положите указательный палец правой рук
 
 #: pam/fingerprint-strings.h:87
 msgid "Swipe your right index finger across the fingerprint reader"
-msgstr "Проведите указанным пальцем правой руки по считывающему устройству"
+msgstr "Проведите указательным пальцем правой руки по считывающему устройству"
 
 #: pam/fingerprint-strings.h:88
 #, c-format
@@ -278,11 +284,11 @@ msgstr "Уберите палец и попробуйте провести ещ�
 msgid "Verification timed out"
 msgstr ""
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 #, fuzzy
 msgid "Failed to match fingerprint"
 msgstr "Проверка отпечатков пальцев"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr ""

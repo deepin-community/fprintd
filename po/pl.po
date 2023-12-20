@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
-"PO-Revision-Date: 2021-07-24 11:08+0000\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
+"PO-Revision-Date: 2021-12-04 14:50+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <https://translate.fedoraproject.org/projects/fprintd/"
 "fprintd/pl/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
-"X-Generator: Weblate 4.7.2\n"
+"X-Generator: Weblate 4.9.1\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -31,29 +31,29 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "Wymagane są uprawnienia, aby zweryfikować odciski palców."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
-msgstr "Pobieranie odcisków palców"
+msgid "Enroll or Delete fingerprints"
+msgstr "Pobieranie lub usuwanie odcisków palców"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
-msgstr "Wymagane są uprawnienia, aby pobrać nowe odciski palców."
+msgid "Privileges are required to enroll or delete fingerprints."
+msgstr "Wymagane są uprawnienia, aby pobrać lub usunąć odciski palców."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
-msgstr "Wybór użytkownika do pobrania"
+msgid "Select a user to manage fingerprints for"
+msgstr "Wybór użytkownika, dla którego zarządzać odciskami palców"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
+msgid "Privileges are required to manage fingerprints for other users."
 msgstr ""
-"Wymagane są uprawnienia, aby pobrać nowe odciski palców dla innych "
+"Wymagane są uprawnienia, aby zarządzać odciskami palców dla innych "
 "użytkowników."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Urządzenie nie zostało zajęte przed użyciem"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "Urządzenie jest już używane przez innego użytkownika"
@@ -281,10 +281,10 @@ msgstr ""
 msgid "Verification timed out"
 msgstr "Weryfikacja przekroczyła czas oczekiwania"
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
 msgstr "Dopasowanie odcisku palca się nie powiodło"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr "Wystąpił nieznany błąd"

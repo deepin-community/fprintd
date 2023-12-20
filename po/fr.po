@@ -5,13 +5,14 @@
 # Translators:
 # Claude Paroz <claude@2xlibre.net>, 2012, 2021.
 # Claude Paroz <claude@2xlibre.net>, 2011, 2021.
+# Thibault HEINRICH <thibault@lexikal-seo.net>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
-"PO-Revision-Date: 2021-07-25 12:04+0000\n"
-"Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
+"PO-Revision-Date: 2021-12-04 09:16+0000\n"
+"Last-Translator: Thibault HEINRICH <thibault@lexikal-seo.net>\n"
 "Language-Team: French <https://translate.fedoraproject.org/projects/fprintd/"
 "fprintd/fr/>\n"
 "Language: fr\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.7.2\n"
+"X-Generator: Weblate 4.9.1\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -31,31 +32,31 @@ msgstr ""
 "Des permissions sont nécessaires pour contrôler des empreintes digitales."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
-msgstr "Introduire de nouvelles empreintes"
+msgid "Enroll or Delete fingerprints"
+msgstr "Introduire ou supprimer des empreintes"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
+msgid "Privileges are required to enroll or delete fingerprints."
 msgstr ""
-"Des permissions sont nécessaires pour introduire de nouvelles empreintes "
+"Des permissions sont nécessaires pour introduire ou supprimer des empreintes "
 "digitales."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
-msgstr "Choisir un utilisateur pour l’introduction"
+msgid "Select a user to manage fingerprints for"
+msgstr "Choisir un utilisateur pour l’administration des empreintes"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
+msgid "Privileges are required to manage fingerprints for other users."
 msgstr ""
-"Des permissions sont nécessaires pour introduire de nouvelles empreintes "
-"digitales pour d’autres utilisateurs."
+"Des permissions sont nécessaires pour administrer des empreintes digitales "
+"pour le compte d’autres utilisateurs."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Le périphérique n’a pas été réservé avant utilisation"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "Le périphérique est déjà utilisé par un autre utilisateur"
@@ -272,7 +273,8 @@ msgstr "Le glissement était trop bref, essayez une nouvelle fois"
 
 #: pam/fingerprint-strings.h:178 pam/fingerprint-strings.h:206
 msgid "Your finger was not centered, try swiping your finger again"
-msgstr "Votre doigt n’était pas centré, essayez de le glisser une nouvelle fois"
+msgstr ""
+"Votre doigt n’était pas centré, essayez de le glisser une nouvelle fois"
 
 #: pam/fingerprint-strings.h:180 pam/fingerprint-strings.h:208
 msgid "Remove your finger, and try swiping your finger again"
@@ -283,10 +285,10 @@ msgstr ""
 msgid "Verification timed out"
 msgstr "Le délai de vérification a expiré"
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
 msgstr "Échec de reconnaissance de l’empreinte digitale"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
-msgstr "Une erreur inconnue est survenue"
+msgstr "Une erreur inconnue s'est produite"

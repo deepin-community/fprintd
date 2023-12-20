@@ -1,22 +1,14 @@
 bash = find_program('bash')
-dbus_interfaces = ['Manager', 'Device']
-dbus_interfaces_files = []
+dbus_interfaces = files(
+    'net.reactivated.Fprint.Manager.xml',
+    'net.reactivated.Fprint.Device.xml',
+)
 
-foreach interface_name: dbus_interfaces
-    interface = interface_name.to_lower()
-    interface_file = interface + '.xml'
-    dbus_interfaces_files += custom_target('dbus_interface_' + interface,
-        input: interface_file,
-        output: 'net.reactivated.Fprint.@0@.xml'.format(interface_name),
-        command: ['cp', '@INPUT@', '@OUTPUT@'],
-        install: true,
-        install_dir: dbus_interfaces_dir,
-    )
-endforeach
+install_data(dbus_interfaces, install_dir: dbus_interfaces_dir)
 
 # NOTE: We should pass "--glib-min-required 2.64" but cannot
 fprintd_dbus_sources_base = gnome.gdbus_codegen('fprintd-dbus',
-    sources: dbus_interfaces_files,
+    sources: dbus_interfaces,
     autocleanup: 'all',
     interface_prefix: 'net.reactivated.Fprint.',
     namespace: 'FprintDBus',

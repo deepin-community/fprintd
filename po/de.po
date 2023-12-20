@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
-"PO-Revision-Date: 2021-08-22 13:04+0000\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
+"PO-Revision-Date: 2021-12-06 12:16+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://translate.fedoraproject.org/projects/fprintd/"
 "fprintd/de/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.9.1\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -30,30 +30,31 @@ msgstr ""
 "Systemverwalterrechte sind zum Überprüfen neuer Fingerabdrücke erforderlich."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
-msgstr "Neue Fingerabdrücke eintragen"
+msgid "Enroll or Delete fingerprints"
+msgstr "Fingerabdrücke eintragen oder löschen"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
+msgid "Privileges are required to enroll or delete fingerprints."
 msgstr ""
-"Systemverwalterrechte sind zum Eintragen neuer Fingerabdrücke erforderlich."
+"Zum Eintragen oder Löschen von Fingerabdrücken sind Berechtigungen "
+"erforderlich."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
-msgstr "Wählen Sie einen Benutzer zum Eintragen aus"
+msgid "Select a user to manage fingerprints for"
+msgstr "Wählen Sie einen Benutzer zur Verwaltung der Fingerabdrücke für"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
+msgid "Privileges are required to manage fingerprints for other users."
 msgstr ""
-"Systemverwalterrechte sind zum Eintragen neuer Fingerabdrücke für andere "
-"Benutzer erforderlich."
+"Zur Verwaltung von Fingerabdrücken für andere Benutzer sind Berechtigungen "
+"erforderlich."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Nutzung des Gerätes wurde vorher nicht angefragt"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "Gerät wird bereits von einem anderen Benutzer verwendet"
@@ -284,10 +285,10 @@ msgstr ""
 msgid "Verification timed out"
 msgstr "Zeitüberschreitung bei der Verifizierung"
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
 msgstr "Fehler beim Abgleich des Fingerabdrucks"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr "Ein unbekannter Fehler ist aufgetreten"

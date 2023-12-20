@@ -4,13 +4,14 @@
 #
 # Translators:
 # Anders Jonsson <anders.jonsson@norsjovallen.se>, 2021.
+# Luna Jernberg <bittin@reimu.nl>, 2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
-"PO-Revision-Date: 2021-07-16 20:04+0000\n"
-"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
+"PO-Revision-Date: 2021-12-06 12:16+0000\n"
+"Last-Translator: Luna Jernberg <bittin@reimu.nl>\n"
 "Language-Team: Swedish <https://translate.fedoraproject.org/projects/fprintd/"
 "fprintd/sv/>\n"
 "Language: sv\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7.1\n"
+"X-Generator: Weblate 4.9.1\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -29,28 +30,27 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "Privilegier krävs för att verifiera fingeravtryck."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
-msgstr "Registrera nya fingeravtryck"
+msgid "Enroll or Delete fingerprints"
+msgstr "Registrera eller ta bort fingeravtryck"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
-msgstr "Privilegier krävs för att registrera nya fingeravtryck."
+msgid "Privileges are required to enroll or delete fingerprints."
+msgstr "Privilegier krävs för att registrera eller ta bort fingeravtryck."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
-msgstr "Välj användare att registrera"
+msgid "Select a user to manage fingerprints for"
+msgstr "Välj användare att hantera fingeravtryck för"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
-msgstr ""
-"Privilegier krävs för att registrera nya fingeravtryck för andra användare."
+msgid "Privileges are required to manage fingerprints for other users."
+msgstr "Privilegier krävs för att hantera fingeravtryck för andra användare."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Enheten har inte tagits över innan användning"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "Enheten används redan av en annan användare"
@@ -277,10 +277,10 @@ msgstr "Ta bort ditt finger och prova att dra ditt finger igen"
 msgid "Verification timed out"
 msgstr "Tidsgräns för verifiering överskreds"
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
 msgstr "Misslyckades med att matcha fingeravtryck"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr "Ett okänt fel inträffade"

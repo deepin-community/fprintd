@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
-"PO-Revision-Date: 2021-09-04 23:04+0000\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
+"PO-Revision-Date: 2021-12-04 09:16+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://translate.fedoraproject.org/projects/fprintd/"
 "fprintd/cs/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.9.1\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -31,28 +31,29 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "K ověření otisků prstů jsou zapotřebí oprávnění."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
-msgstr "Registrovat nové otisky prstů"
+msgid "Enroll or Delete fingerprints"
+msgstr "Registrovat nebo smazat nové otisky prstů"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
-msgstr "K registraci nových otisků prstů jsou zapotřebí oprávnění."
+msgid "Privileges are required to enroll or delete fingerprints."
+msgstr ""
+"K registraci nových nebo mazání stávajících otisků prstů jsou zapotřebí "
+"oprávnění."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
-msgstr "Zvolte uživatele k registraci"
+msgid "Select a user to manage fingerprints for"
+msgstr "Zvolte uživatele, u kterého spravovat otisky"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
-msgstr ""
-"K registraci nových otisků prstů pro jiné uživatele jsou zapotřebí oprávnění."
+msgid "Privileges are required to manage fingerprints for other users."
+msgstr "Pro správu otisků prstů ostatních uživatelů jsou zapotřebí oprávnění."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Zařízení nebylo před použitím získáno"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "Zařízení je již používáno jiným uživatelem"
@@ -279,10 +280,10 @@ msgstr "Sejměte prst a zkuste s ním přejet znovu"
 msgid "Verification timed out"
 msgstr "Překročen časový limit pro ověření"
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
 msgstr "Nepodařilo se najít shodu s otiskem"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr "Došlo k neznámé chybě"

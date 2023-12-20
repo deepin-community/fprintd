@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
 "PO-Revision-Date: 2021-08-15 14:02+0200\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/freedesktop/fprintd/"
@@ -30,28 +30,32 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "Es requereixen privilegis per verificar empremtes."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
+#, fuzzy
+msgid "Enroll or Delete fingerprints"
 msgstr "Inscriu empremtes noves"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
+#, fuzzy
+msgid "Privileges are required to enroll or delete fingerprints."
 msgstr "Es requereixen privilegis per inscriure empremtes noves."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
+#, fuzzy
+msgid "Select a user to manage fingerprints for"
 msgstr "Selecciona un usuari per inscriure"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
+#, fuzzy
+msgid "Privileges are required to manage fingerprints for other users."
 msgstr ""
 "Es requereixen privilegis per inscriure noves empremtes per a altres usuaris."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "El dispositiu no estava preparat"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "El dispositiu ja l'està fent servir un altre usuari"
@@ -278,10 +282,10 @@ msgstr "Retireu el dit i intenteu passar el dit de nou"
 msgid "Verification timed out"
 msgstr "S'ha esgotat el temps d'espera de la verificació"
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
 msgstr "L'empremta no coincideix"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr "Hi ha hagut un error desconegut"

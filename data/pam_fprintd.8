@@ -160,11 +160,15 @@ pam_syslog which means that they will be saved in the systemd journal by default
 .IP "\fBmax\-tries=\f(BI\s-1MAX_TRIES\s0\fB\fR" 8
 .IX Item "max-tries=MAX_TRIES"
 The number of attempts at fingerprint authentication to try before returning an
-authentication failure. The minimum, and default, number of tries is 3.
+authentication failure. The default, number of tries is 3.
+Use a negative value to set no limit at all, so that the module won't ever error on multiple
+retries, but in such case it's suggested for the module loader to handle this.
 .IP "\fBtimeout=\f(BI\s-1TIMEOUT\s0\fB\fR" 8
 .IX Item "timeout=TIMEOUT"
 The amount of time before returning an authentication failure. The default timeout
 is 30 seconds, with 10 seconds being the minimum.
+Use a negative value to set no limit at all, so that fingerprint authentication will
+be always active while this module is loaded.
 .SH "LIMITATIONS"
 .IX Header "LIMITATIONS"
 The \s-1PAM\s0 stack is by design a serialised authentication, so it is not

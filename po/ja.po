@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
 "PO-Revision-Date: 2021-09-09 03:04+0000\n"
 "Last-Translator: Takuro Onoue <kusanaginoturugi@gmail.com>\n"
 "Language-Team: Japanese <https://translate.fedoraproject.org/projects/"
@@ -30,27 +30,31 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "指紋を検証するには特権が必要になります。"
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
+#, fuzzy
+msgid "Enroll or Delete fingerprints"
 msgstr "新しい指紋の登録"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
+#, fuzzy
+msgid "Privileges are required to enroll or delete fingerprints."
 msgstr "新しい指紋を登録するには特権が必要になります。"
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
+#, fuzzy
+msgid "Select a user to manage fingerprints for"
 msgstr "登録するユーザーの選択"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
+#, fuzzy
+msgid "Privileges are required to manage fingerprints for other users."
 msgstr "他のユーザーに対する新しい指紋を登録するには特権が必要になります。"
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "装置が使用前に要求されませんでした"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "装置がすでに他のユーザーにより使用されています"
@@ -277,10 +281,10 @@ msgstr "指をどかして、もう一度指をなぞってみてください"
 msgid "Verification timed out"
 msgstr "検証がタイムアウトしました"
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
 msgstr "指紋の検証に失敗しました"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr "不明なエラーが発生しました"
