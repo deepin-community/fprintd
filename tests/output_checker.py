@@ -98,16 +98,16 @@ class OutputChecker(object):
                 # EOF, throw error
                 if self._pipe_fd_r == -1:
                     if failmsg:
-                        raise AssertionError("No further messages: " % failmsg)
+                        raise AssertionError("No further messages: " % failmsg) from None
                     else:
-                        raise AssertionError('No client waiting for needle %s' % (str(needle_re)))
+                        raise AssertionError('No client waiting for needle %s' % (str(needle_re))) from None
 
                 # Check if should wake up
                 if not self._lines_sem.acquire(timeout = deadline - time.time()):
                     if failmsg:
-                        raise AssertionError(failmsg)
+                        raise AssertionError(failmsg) from None
                     else:
-                        raise AssertionError('Timed out waiting for needle %s (timeout: %0.2f)' % (str(needle_re), timeout))
+                        raise AssertionError('Timed out waiting for needle %s (timeout: %0.2f)' % (str(needle_re), timeout)) from None
                 continue
 
             ret.append(l)

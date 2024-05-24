@@ -1,3 +1,46 @@
+fprintd (1.94.3-1) unstable; urgency=medium
+
+  [ Marco Trevisan (Treviño) ]
+  * New upstream release (LP: #2060067, Closes: #1064813)
+  * debian/patches: Drop, all applied upstream
+
+  [ Michael Biebl ]
+  * Install PAM module in /usr (Closes: #1061580)
+  * Install systemd unit in /usr (Closes: #1061580)
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Thu, 04 Apr 2024 03:58:13 +0200
+
+fprintd (1.94.2-3) unstable; urgency=medium
+
+  * debian/control: depend on polkitd instead of policykit-1
+    fprintd requires polkitd but it uses it via dbus. (Closes: #1025558)
+  * debian/rules: Skip pam tests as they are timeouting in debian.
+    This is a build failure that we've in debian but not upstream, so while
+    we figure out what it is, it's better to just skip the tests to unblock
+    fprintd to land.
+  * debian/patches: Cherry pick upstream fixes
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Sat, 23 Dec 2023 04:28:38 +0100
+
+fprintd (1.94.2-2) unstable; urgency=medium
+
+  * debian/patches: Cherry-pick upstream fixes
+    - Avoid to warn when not needed
+    - Fix dbusmock AddDevice calls to include optional argument
+      (Closes: #1009395)
+    - Translation updates
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Tue, 07 Jun 2022 20:05:39 +0200
+
+fprintd (1.94.2-1) unstable; urgency=medium
+
+  * New upstream release:
+    - Add PAM module options to ignore timeout/retry limits
+    - A lot of translation updates after the POT file was fixed
+    - Improve meson build file and fix building with meson 0.61.0
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Fri, 25 Feb 2022 01:44:22 +0100
+
 fprintd (1.94.1-1) unstable; urgency=medium
 
   * New upstream release

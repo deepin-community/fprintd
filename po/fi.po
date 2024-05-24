@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
-"PO-Revision-Date: 2021-07-23 12:04+0000\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
+"PO-Revision-Date: 2021-12-04 09:16+0000\n"
 "Last-Translator: Jan Kuparinen <copper_fin@hotmail.com>\n"
 "Language-Team: Finnish <https://translate.fedoraproject.org/projects/fprintd/"
 "fprintd/fi/>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7.2\n"
+"X-Generator: Weblate 4.9.1\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -32,28 +32,27 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "Sormenjälkien tarkistamiseen tarvitaan oikeudet."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
-msgstr "Rekisteröi uusia sormenjälkiä"
+msgid "Enroll or Delete fingerprints"
+msgstr "Rekisteröi tai poista sormenjälkiä"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
-msgstr "Uusien sormenjälkien rekisteröintiin tarvitaan oikeudet."
+msgid "Privileges are required to enroll or delete fingerprints."
+msgstr "Sormenjälkien rekisteröintiin tai poistoon tarvitaan oikeudet."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
-msgstr "Valitse käyttäjä, johon haluat kirjata"
+msgid "Select a user to manage fingerprints for"
+msgstr "Valitse käyttäjä, jonka sormenjälkiä hallinnoidaan"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
-msgstr ""
-"Uusien sormenjälkien rekisteröiminen muille käyttäjille edellyttää oikeuksia."
+msgid "Privileges are required to manage fingerprints for other users."
+msgstr "Muiden käyttäjien sormenjälkien hallinta edellyttää käyttöoikeuksia."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Laitetta ei noudettu ennen käyttöä"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "Laite on jo toisen käyttäjän käytössä"
@@ -281,10 +280,10 @@ msgstr "Poista sormi ja yritä pyyhkäistä uudelleen"
 msgid "Verification timed out"
 msgstr "Vahvistus aikakatkaistiin"
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
 msgstr "Sormenjäljen vahvistaminen epäonnistui"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr "Tapahtui tuntematon virhe"

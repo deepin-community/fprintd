@@ -4,20 +4,22 @@
 #
 # Translators:
 # Richard E. van der Luit <nippur@fedoraproject.org>, 2012
+# Philip Goto <philip.goto@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
-"PO-Revision-Date: 2017-09-19 10:52+0000\n"
-"Last-Translator: Richard E. van der Luit <nippur@fedoraproject.org>\n"
-"Language-Team: Dutch (http://www.transifex.com/freedesktop/fprintd/language/"
-"nl/)\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
+"PO-Revision-Date: 2022-11-17 18:19+0000\n"
+"Last-Translator: Philip Goto <philip.goto@gmail.com>\n"
+"Language-Team: Dutch <https://translate.fedoraproject.org/projects/fprintd/"
+"fprintd/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.14.2\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -25,32 +27,32 @@ msgstr "Verifieer een vingerafdruk"
 
 #: data/net.reactivated.fprint.device.policy.in:14
 msgid "Privileges are required to verify fingerprints."
-msgstr "U hebt rechten nodig om vingerafdrukken te verifiëren"
+msgstr "U hebt rechten nodig om vingerafdrukken te verifiëren."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
-msgstr "Meldt nieuwe vingerafdrukken aan"
+msgid "Enroll or Delete fingerprints"
+msgstr "Vingerafdrukken aanmelden of verwijderen"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
-msgstr "U hebt rechten nodig om nieuwe vingerafdrukken aan te melden"
+msgid "Privileges are required to enroll or delete fingerprints."
+msgstr ""
+"U hebt rechten nodig om vingerafdrukken aan te melden of te verwijderen."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
-msgstr "Selecteer een gebruiker om aan te melden"
+msgid "Select a user to manage fingerprints for"
+msgstr "Selecteer een gebruiker om vingerafdrukken voor te beheren"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
+msgid "Privileges are required to manage fingerprints for other users."
 msgstr ""
-"U hebt rechten nodig om nieuwe vingerafdrukken van andere gebruikers aan te "
-"melden"
+"U hebt rechten nodig om vingerafdrukken van andere gebruikers te beheren."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Apparaat was niet geclaimd voor gebruik"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "Apparaat wordt reeds door een andere gebruiker gebruikt"
@@ -277,13 +279,12 @@ msgstr "Haal uw vinger weer weg en probeer nogmaals met die vinger te vegen"
 
 #: pam/pam_fprintd.c:537
 msgid "Verification timed out"
-msgstr ""
+msgstr "Verificatie is verlopen"
 
-#: pam/pam_fprintd.c:560
-#, fuzzy
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
-msgstr "Verifieer een vingerafdruk"
+msgstr "Vingerafdruk komt niet overeen"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "Er is een onbekende fout opgetreden"

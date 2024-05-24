@@ -4,13 +4,13 @@
 #
 # Translators:
 # Tomislav Krznar <tomislav.krznar@gmail.com>, 2012
-# Gogo Gogsi <linux.hr@protonmail.com>, 2021.
+# Gogo Gogsi <linux.hr@protonmail.com>, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
-"PO-Revision-Date: 2021-10-03 15:05+0000\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
+"PO-Revision-Date: 2022-06-25 16:18+0000\n"
 "Last-Translator: Gogo Gogsi <linux.hr@protonmail.com>\n"
 "Language-Team: Croatian <https://translate.fedoraproject.org/projects/"
 "fprintd/fprintd/hr/>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.8\n"
+"X-Generator: Weblate 4.13\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -31,28 +31,27 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "Potrebne su ovlasti za provjeru otisaka prstiju."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
-msgstr "Unesi nove otiske prstiju"
+msgid "Enroll or Delete fingerprints"
+msgstr "Unesite ili obrišite otiske prstiju"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
-msgstr "Potrebne su ovlasti za unošenje novih otisaka prstiju."
+msgid "Privileges are required to enroll or delete fingerprints."
+msgstr "Potrebne su ovlasti za unošenje ili brisanje otisaka prstiju."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
-msgstr "Odaberite korisnika za unos"
+msgid "Select a user to manage fingerprints for"
+msgstr "Odaberite korisnika za upravljanje otiscima prstiju za"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
-msgstr ""
-"Potrebne su ovlasti za unošenje novih otisaka prstiju za druge korisnike."
+msgid "Privileges are required to manage fingerprints for other users."
+msgstr "Potrebne su ovlasti za upravljanjem otisaka prstiju za druge korisnike."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Uređaj nije zauzet prije korištenja"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "Uređaj već koristi drugi korisnik"
@@ -279,10 +278,10 @@ msgstr "Maknite prst i pokušajte ga povući ponovo"
 msgid "Verification timed out"
 msgstr "Provjera je istekla"
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
 msgstr "Neuspjelo podudaranje otiska prstiju"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr "Dogodila se nepoznata greška"

@@ -1,5 +1,5 @@
 project('fprintd', 'c',
-    version: '1.94.1',
+    version: '1.94.3',
     license: 'GPLv2+',
     default_options: [
         'buildtype=debugoptimized',
@@ -92,7 +92,7 @@ gmodule_dep = dependency('gmodule-2.0', version: '>=' + glib_min_version)
 libfprint_dep = dependency('libfprint-2', version: '>=' + libfprint_min_version)
 polkit_gobject_dep = dependency('polkit-gobject-1', version: '>= 0.91')
 dbus_dep = dependency('dbus-1', required: false)
-libsystemd_dep = dependency('libsystemd', required: get_option('pam'))
+libsystemd_dep = dependency(get_option('libsystemd'), required: get_option('pam'))
 pam_dep = cc.find_library('pam',
     required: get_option('pam'),
     has_headers: 'security/pam_modules.h',
@@ -137,7 +137,10 @@ endif
 polkit_policy_directory = polkit_gobject_dep.get_pkgconfig_variable('policydir')
 
 # Tests dependencies
-pam_wrapper_dep = dependency('pam_wrapper', required: get_option('pam'))
+pam_wrapper_dep = dependency('pam_wrapper', required: false)
+if get_option('pam') and not pam_wrapper_dep.found()
+    warning('Dependency "pam_wrapper" required by test suite not found')
+endif
 
 xmllint = find_program('xmllint', required: false)
 python3 = find_program('python3') # No meson without it!
@@ -153,7 +156,7 @@ python3_available_modules = []
 
 foreach module, required : python3_test_modules
     if required and run_command(python3, '-c', 'import @0@'.format(module)).returncode() != 0
-        error('Python3 module \'' + module + '\' required by test suite not found')
+        warning('Python3 module \'' + module + '\' required by test suite not found')
     endif
 endforeach
 

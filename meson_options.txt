@@ -10,6 +10,11 @@ option('systemd',
     description: 'Install system service files',
     type: 'boolean',
     value: true)
+option('libsystemd',
+    description: 'Libsystemd provider (libsystemd or libelogind)',
+    type: 'combo',
+    choices: [ 'libsystemd', 'libelogind', 'basu'],
+    value: 'libsystemd')
 option('systemd_system_unit_dir',
     description: 'Directory for systemd service files',
     type: 'string')

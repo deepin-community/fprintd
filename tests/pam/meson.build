@@ -12,7 +12,9 @@ if address_sanitizer
     preloaded_libs += 'asan'
 endif
 
-preloaded_libs += 'pam_wrapper'
+if pam_wrapper_dep.found()
+    preloaded_libs += 'pam_wrapper'
+endif
 
 foreach libname: preloaded_libs
     lib = run_command(meson.get_compiler('c'),

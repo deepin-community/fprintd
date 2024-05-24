@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
 "PO-Revision-Date: 2017-09-19 09:46+0000\n"
 "Last-Translator: thanos <tomtryf@gmail.com>\n"
 "Language-Team: Greek (http://www.transifex.com/freedesktop/fprintd/language/"
@@ -29,30 +29,34 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "Απαιτούνται προνόμια για την επαλήθευση των δακτυλικών αποτυπωμάτων."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
+#, fuzzy
+msgid "Enroll or Delete fingerprints"
 msgstr "Καταγραφή νέων δακτυλικών αποτυπωμάτων"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
+#, fuzzy
+msgid "Privileges are required to enroll or delete fingerprints."
 msgstr ""
 "Απαιτούνται προνόμια για τη καταγραφή καινούργιων δακτυλικών αποτυπωμάτων."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
+#, fuzzy
+msgid "Select a user to manage fingerprints for"
 msgstr "Επιλέξτε ένα χρήστη για να κάνετε καταγραφή αποτυπωμάτων"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
+#, fuzzy
+msgid "Privileges are required to manage fingerprints for other users."
 msgstr ""
 "Απαιτούνται προνόμια για την καταγραφή νέων δακτυλικών αποτυπωμάτων για "
 "άλλους χρήστες."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Η συσκευή δεν ζητήθηκε πριν από τη χρήση"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "Η συσκευή χρησιμοποιείται ήδη από έναν άλλο χρήστη"
@@ -306,11 +310,11 @@ msgstr "Απομακρύνετε το δάκτυλο σας και προσπα�
 msgid "Verification timed out"
 msgstr ""
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 #, fuzzy
 msgid "Failed to match fingerprint"
 msgstr "Επιβεβαιώστε ένα δακτυλικό αποτύπωμα"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr ""
