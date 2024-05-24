@@ -29,15 +29,15 @@
 #define _PF_AUTOPTR_TYPENAME(TypeName)  TypeName ## _pf_autoptr
 
 #define PF_DEFINE_AUTOPTR_CLEANUP_FUNC(TypeName, cleanup) \
-  typedef TypeName *_PF_AUTOPTR_TYPENAME (TypeName);    \
-  static __attribute__((__unused__)) inline void        \
-  _PF_AUTOPTR_FUNC_NAME (TypeName) (TypeName **_ptr)    \
-  { if (_ptr) (cleanup) (*_ptr); }
+        typedef TypeName *_PF_AUTOPTR_TYPENAME (TypeName);    \
+        static __attribute__((__unused__)) inline void        \
+        _PF_AUTOPTR_FUNC_NAME (TypeName) (TypeName **_ptr)    \
+        { if (_ptr) (cleanup) (*_ptr); }
 
 #define PF_DEFINE_AUTO_CLEAN_FUNC(TypeName, cleanup)  \
-  static __attribute__((__unused__)) inline void    \
-  _PF_AUTOPTR_FUNC_NAME (TypeName) (TypeName *_ptr) \
-  { cleanup (_ptr); }
+        static __attribute__((__unused__)) inline void    \
+        _PF_AUTOPTR_FUNC_NAME (TypeName) (TypeName *_ptr) \
+        { cleanup (_ptr); }
 
 static inline void
 autoptr_cleanup_generic_free (void *p)
@@ -49,10 +49,10 @@ autoptr_cleanup_generic_free (void *p)
 
 #define pf_autofree _CLEANUP_FUNC (autoptr_cleanup_generic_free)
 #define pf_autoptr(TypeName) \
-  _CLEANUP_FUNC (_PF_AUTOPTR_FUNC_NAME (TypeName)) \
-  _PF_AUTOPTR_TYPENAME (TypeName)
+        _CLEANUP_FUNC (_PF_AUTOPTR_FUNC_NAME (TypeName)) \
+        _PF_AUTOPTR_TYPENAME (TypeName)
 #define pf_auto(TypeName) \
-  _CLEANUP_FUNC (_PF_AUTOPTR_FUNC_NAME (TypeName)) TypeName
+        _CLEANUP_FUNC (_PF_AUTOPTR_FUNC_NAME (TypeName)) TypeName
 
 PF_DEFINE_AUTOPTR_CLEANUP_FUNC (sd_bus, sd_bus_unref)
 PF_DEFINE_AUTOPTR_CLEANUP_FUNC (sd_bus_message, sd_bus_message_unref)

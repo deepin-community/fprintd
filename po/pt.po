@@ -4,20 +4,22 @@
 #
 # Translators:
 # Pedro Albuquerque <pmra@gmx.com>, 2015
+# Andre Barata <andretiagob@protonmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
-"PO-Revision-Date: 2017-09-19 21:51+0000\n"
-"Last-Translator: Pedro Albuquerque <pmra@gmx.com>\n"
-"Language-Team: Portuguese (http://www.transifex.com/freedesktop/fprintd/"
-"language/pt/)\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
+"PO-Revision-Date: 2023-03-22 13:20+0000\n"
+"Last-Translator: Andre Barata <andretiagob@protonmail.com>\n"
+"Language-Team: Portuguese <https://translate.fedoraproject.org/projects/"
+"fprintd/fprintd/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Weblate 4.15.2\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -28,29 +30,30 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "São necessários privilégios para verificar impressões digitais."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
-msgstr "Inscrever novas impressões digitais"
+msgid "Enroll or Delete fingerprints"
+msgstr "Inscrever ou remover impressões digitais"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
-msgstr "São necessários privilégios para inscrever novas impressões digitais."
+msgid "Privileges are required to enroll or delete fingerprints."
+msgstr ""
+"São necessários privilégios para inscrever ou remover impressões digitais."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
-msgstr "Selecione um utilizador para inscrever"
+msgid "Select a user to manage fingerprints for"
+msgstr "Selecione um utilizador para inscrever impressões digitais"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
+msgid "Privileges are required to manage fingerprints for other users."
 msgstr ""
-"São necessários privilégios para inscrever novas impressões digitais para "
-"outros utilizadores."
+"São necessários privilégios para inscrever impressões digitais para outros "
+"utilizadores."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "O dispositivo não foi reclamado antes de usar"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "O dispositivo já está em uso por outro utilizador"
@@ -275,13 +278,12 @@ msgstr "Retire o dedo e tente deslizar novamente"
 
 #: pam/pam_fprintd.c:537
 msgid "Verification timed out"
-msgstr ""
+msgstr "A verificação expirou"
 
-#: pam/pam_fprintd.c:560
-#, fuzzy
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
-msgstr "Verificar uma impressão digital"
+msgstr "Impressão digital não corresponde"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "Ocorreu um error desconhecido"

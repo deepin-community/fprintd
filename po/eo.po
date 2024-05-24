@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
 "PO-Revision-Date: 2017-09-19 10:24+0000\n"
 "Last-Translator: hadess <hadess@hadess.net>\n"
 "Language-Team: Esperanto (http://www.transifex.com/freedesktop/fprintd/"
@@ -28,29 +28,33 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "Sistemprivilegioj estas bezonate por kontroli fingrospurojn."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
+#, fuzzy
+msgid "Enroll or Delete fingerprints"
 msgstr "Registri novajn fingrospurojn"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
+#, fuzzy
+msgid "Privileges are required to enroll or delete fingerprints."
 msgstr "Sistemprivilegioj estas bezonate por registri novajn fingrospurojn."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
+#, fuzzy
+msgid "Select a user to manage fingerprints for"
 msgstr "Elektu uzanton or registri"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
+#, fuzzy
+msgid "Privileges are required to manage fingerprints for other users."
 msgstr ""
 "Sistemprivilegioj estas bezonate por registri novajn fingrospurojn por aliaj "
 "uzantoj."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Ne pretendis la aparaton antaŭ uzo"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "La aparato jam estas uzate de alia uzanto"
@@ -277,11 +281,11 @@ msgstr "Forigu vian fingron, kaj provu turneti vian fingron denove"
 msgid "Verification timed out"
 msgstr ""
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 #, fuzzy
 msgid "Failed to match fingerprint"
 msgstr "Kontroli fingrospuron"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr ""

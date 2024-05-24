@@ -6,20 +6,23 @@
 # Frank Hill <hxf.prc@gmail.com>, 2014
 # e0c668032ced196bd60f2b6a070d982d_8f72ae0, 2011
 # e0c668032ced196bd60f2b6a070d982d_8f72ae0, 2013
+# kk z <izhaoshuang@163.com>, 2022.
+# Charles Lee <lchopn@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
-"PO-Revision-Date: 2017-09-19 09:46+0000\n"
-"Last-Translator: Mingye Wang <arthur200126@gmail.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/freedesktop/fprintd/"
-"language/zh_CN/)\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
+"PO-Revision-Date: 2022-03-24 04:17+0000\n"
+"Last-Translator: Charles Lee <lchopn@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://translate.fedoraproject.org/"
+"projects/fprintd/fprintd/zh_CN/>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.11.2\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -30,27 +33,27 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "验证指纹需要更高的权限。"
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
-msgstr "登记新的指纹"
+msgid "Enroll or Delete fingerprints"
+msgstr "登记/删除指纹"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
-msgstr "需要更高的权限来登记新指纹。"
+msgid "Privileges are required to enroll or delete fingerprints."
+msgstr "需要更高的权限来登记或删除指纹。"
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
-msgstr "选择要登记的用户"
+msgid "Select a user to manage fingerprints for"
+msgstr "选择用户以管理其指纹"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
-msgstr "需要更高的权限来为其他用户登记指纹。"
+msgid "Privileges are required to manage fingerprints for other users."
+msgstr "需要更高的权限来管理其他用户的指纹。"
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "设备使用前没有声明"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "设备正由另一用户使用"
@@ -275,13 +278,12 @@ msgstr "移开您的手指，并重新试着摁下"
 
 #: pam/pam_fprintd.c:537
 msgid "Verification timed out"
-msgstr ""
+msgstr "验证超时"
 
-#: pam/pam_fprintd.c:560
-#, fuzzy
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
-msgstr "验证指纹"
+msgstr "指纹匹配失败"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "发生了一个未知错误"

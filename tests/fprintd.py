@@ -331,6 +331,7 @@ class FPrintdTest(dbusmock.DBusTestCase):
 
         self._polkitd, self._polkitd_obj = self.spawn_server_template(
             polkitd_template, {}, stdout=subprocess.PIPE)
+        self.addCleanup(self._polkitd.stdout.close)
         self.addCleanup(self.stop_server, '_polkitd', '_polkitd_obj')
 
         return self._polkitd
@@ -364,6 +365,8 @@ class FPrintdTest(dbusmock.DBusTestCase):
         self.run_dir = os.path.join(self.test_dir, 'run')
         self.device_id = 0
         self._async_call_res = {}
+        os.environ['FP_DRIVERS_ALLOWLIST'] = self.device_driver
+        # TODO: Remove this when we depend on libfprint 1.94.7
         os.environ['FP_DRIVERS_WHITELIST'] = self.device_driver
 
         # Always start fake polkitd because of
@@ -570,7 +573,7 @@ class FPrintdTest(dbusmock.DBusTestCase):
         return all_replies
 
     def gdbus_device_method_call_process(self, method, args=[]):
-        return subprocess.Popen([
+        proc = subprocess.Popen([
             'gdbus',
             'call',
             '--system',
@@ -581,6 +584,8 @@ class FPrintdTest(dbusmock.DBusTestCase):
             '--method',
             '{}.{}'.format(self.device.get_interface_name(), method),
         ] + args, stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+        self.addCleanup(proc.stdout.close)
+        return proc
 
     def call_device_method_from_other_client(self, method, args=[]):
         try:
@@ -1246,11 +1251,15 @@ class FPrintdManagerTests(FPrintdVirtualDeviceBaseTest):
 class FPrintdManagerPreStartTests(FPrintdVirtualImageDeviceBaseTests):
 
     def test_manager_get_no_devices(self):
+        os.environ['FP_DRIVERS_ALLOWLIST'] = 'hopefully_no_existing_driver'
+        # TODO: Remove this when we depend on libfprint 1.94.7
         os.environ['FP_DRIVERS_WHITELIST'] = 'hopefully_no_existing_driver'
         self.daemon_start()
         self.assertListEqual(self.manager.GetDevices(), [])
 
     def test_manager_get_no_default_device(self):
+        os.environ['FP_DRIVERS_ALLOWLIST'] = 'hopefully_no_existing_driver'
+        # TODO: Remove this when we depend on libfprint 1.94.7
         os.environ['FP_DRIVERS_WHITELIST'] = 'hopefully_no_existing_driver'
         self.daemon_start()
 

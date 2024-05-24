@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
 "PO-Revision-Date: 2021-08-29 17:04+0000\n"
 "Last-Translator: girish joshi <girish946@gmail.com>\n"
 "Language-Team: Marathi <https://translate.fedoraproject.org/projects/fprintd/"
@@ -29,29 +29,31 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "फिंगरप्रिंट सत्यापित करण्यासाठी विशेषाधिकार आवश्यक आहेत."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
+#, fuzzy
+msgid "Enroll or Delete fingerprints"
 msgstr "नवीन फिंगरप्रिंट्स नोंदवा"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
+#, fuzzy
+msgid "Privileges are required to enroll or delete fingerprints."
 msgstr "फिंगरप्रिंट सत्यापित करण्यासाठी विशेषाधिकार आवश्यक आहेत."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
+#, fuzzy
+msgid "Select a user to manage fingerprints for"
 msgstr "नोंदणी करण्यासाठी वापरकर्ता निवडा"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
-msgstr ""
-"इतर वापरकर्त्यांसाठी नवीन फिंगरप्रिंट्स नोंदणी करण्यासाठी विशेषाधिकार आवश्यक "
-"आहेत."
+#, fuzzy
+msgid "Privileges are required to manage fingerprints for other users."
+msgstr "इतर वापरकर्त्यांसाठी नवीन फिंगरप्रिंट्स नोंदणी करण्यासाठी विशेषाधिकार आवश्यक आहेत."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "डिव्हाइस वापरण्यापूर्वी दावा केला नाही"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "डिव्हाइस आधीपासून दुसर्या वापरकर्त्याद्वारे वापरात आहे"
@@ -268,22 +270,20 @@ msgstr "स्वाइप खूप लहान होते, पुन्ह�
 
 #: pam/fingerprint-strings.h:178 pam/fingerprint-strings.h:206
 msgid "Your finger was not centered, try swiping your finger again"
-msgstr ""
-"आपली बोट केंद्रीत नव्हती, पुन्हा आपल्या बोटाने स्वाइप करण्याचा प्रयत्न करा"
+msgstr "आपली बोट केंद्रीत नव्हती, पुन्हा आपल्या बोटाने स्वाइप करण्याचा प्रयत्न करा"
 
 #: pam/fingerprint-strings.h:180 pam/fingerprint-strings.h:208
 msgid "Remove your finger, and try swiping your finger again"
-msgstr ""
-"आपली बोट काढून टाका आणि पुन्हा आपल्या बोटाने स्वाइप करण्याचा प्रयत्न करा"
+msgstr "आपली बोट काढून टाका आणि पुन्हा आपल्या बोटाने स्वाइप करण्याचा प्रयत्न करा"
 
 #: pam/pam_fprintd.c:537
 msgid "Verification timed out"
 msgstr "सत्यापन कालबाह्य झाले"
 
-#: pam/pam_fprintd.c:560
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
 msgstr "फिंगरप्रिंटशी जुळण्यासाठी अयशस्वी"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
 msgstr "एक अज्ञात त्रुटी आली"

@@ -59,19 +59,26 @@ load_storage_module (const char *module_name)
   GModule *module;
   g_autofree char *filename = NULL;
 
+#if !GLIB_CHECK_VERSION (2, 76, 0)
   filename = g_module_build_path (PLUGINDIR, module_name);
+#else
+  filename = g_build_filename (PLUGINDIR, module_name, NULL);
+#endif
   module = g_module_open (filename, 0);
   if (module == NULL)
     return FALSE;
 
+  g_debug ("About to load module '%s'", filename);
   if (!g_module_symbol (module, "init", (gpointer *) &store.init) ||
       !g_module_symbol (module, "deinit", (gpointer *) &store.deinit) ||
       !g_module_symbol (module, "print_data_save", (gpointer *) &store.print_data_save) ||
       !g_module_symbol (module, "print_data_load", (gpointer *) &store.print_data_load) ||
       !g_module_symbol (module, "print_data_delete", (gpointer *) &store.print_data_delete) ||
-      !g_module_symbol (module, "discover_prints", (gpointer *) &store.discover_prints))
+      !g_module_symbol (module, "discover_prints", (gpointer *) &store.discover_prints) ||
+      !g_module_symbol (module, "discover_users", (gpointer *) &store.discover_users))
     {
       g_module_close (module);
+      g_debug ("Failed to load module. Please update your code.");
       return FALSE;
     }
 

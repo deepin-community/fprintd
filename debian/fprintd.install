@@ -1,7 +1,7 @@
 #!/usr/bin/dh-exec
 
 etc/fprintd.conf
-[linux-any] lib/systemd/system/fprintd.service
+[linux-any] usr/lib/systemd/system/fprintd.service
 usr/bin/fprintd-delete
 usr/bin/fprintd-enroll
 usr/bin/fprintd-list

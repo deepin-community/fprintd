@@ -9,21 +9,20 @@ docbook_xml_header = custom_target('docbook_xml_header',
 )
 
 dbus_interfaces_refs = []
-foreach interface_file: dbus_interfaces_files
-    basename = run_command('basename', interface_file.full_path(), '.xml').stdout().strip()
+foreach interface_file: dbus_interfaces
+    basename = run_command('basename', interface_file, '.xml').stdout().strip()
     dbus_interfaces_refs += custom_target(basename + '_ref',
         input: docbook_xml_header,
         output: basename + '.ref.xml',
         build_by_default: true,
-        depends: interface_file,
+        depend_files: interface_file,
         capture: true,
         command: [
-            bash, '-c',
-            'cat @INPUT@;' +
-            xsltproc.path() + ' @0@/@1@ '.format(
-                meson.source_root(),
-                files('spec-to-docbook.xsl')[0]) +
-            interface_file.full_path() + '| tail -n +2;',
+            sh, '-c',
+            'cat "$1"; "$2" "$3" "$4" | tail -n +2',
+            '_', # argv0 ignored
+            '@INPUT@',
+            xsltproc, files('spec-to-docbook.xsl')[0], interface_file
         ],
     )
 endforeach

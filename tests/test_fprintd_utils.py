@@ -88,7 +88,7 @@ class TestFprintdUtilsBase(dbusmock.DBusTestCase):
 
     def setup_device(self):
         self.device_path = self.obj_fprintd_mock.AddDevice(
-            'FDO Trigger Finger Laser Reader', 3, 'swipe')
+            'FDO Trigger Finger Laser Reader', 3, 'swipe', False)
         self.device_mock = self.dbus_con.get_object('net.reactivated.Fprint',
             self.device_path)
         self.set_enrolled_fingers(['left-little-finger', 'right-little-finger'])

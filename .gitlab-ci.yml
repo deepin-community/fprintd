@@ -31,6 +31,11 @@ variables:
 
 image: "$FEDORA_IMAGE"
 
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_PIPELINE_SOURCE == 'push'
+
 stages:
   - check-source
   - build
@@ -94,8 +99,8 @@ test_dev:
   script:
     - meson _build -Db_coverage=true
     - meson test -C _build --print-errorlogs --no-stdsplit --timeout-multiplier 3
-    - ninja -C _build coverage
-    - cat _build/meson-logs/coverage.txt
+    - ninja -C _build coverage || true
+    - cat _build/meson-logs/coverage.txt || true
   artifacts:
     expose_as: 'Coverage Report'
     paths:

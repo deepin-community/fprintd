@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 po_dir=$(dirname $0)
 

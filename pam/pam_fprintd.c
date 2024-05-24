@@ -21,6 +21,7 @@
 #include <config.h>
 
 #define _GNU_SOURCE
+#include <limits.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -447,7 +448,10 @@ do_verify (sd_bus      *bus,
 
   while (data->max_tries > 0)
     {
-      uint64_t verification_end = now () + (timeout * USEC_PER_SEC);
+      uint64_t verification_end = ULONG_MAX;
+
+      if (timeout != UINT_MAX)
+        verification_end = now () + (timeout * USEC_PER_SEC);
 
       data->timed_out = false;
       data->verify_started = false;
@@ -832,7 +836,8 @@ pam_sm_authenticate (pam_handle_t *pamh, int flags, int argc,
             }
           else if (str_has_prefix (argv[i], MAX_TRIES_MATCH) && strlen (argv[i]) > strlen (MAX_TRIES_MATCH))
             {
-              max_tries = atoi (argv[i] + strlen (MAX_TRIES_MATCH));
+              int opt_max_tries = atoi (argv[i] + strlen (MAX_TRIES_MATCH));
+              max_tries = (opt_max_tries < 0 ? UINT_MAX : (unsigned) opt_max_tries);
               if (max_tries < 1)
                 {
                   if (debug)
@@ -845,7 +850,8 @@ pam_sm_authenticate (pam_handle_t *pamh, int flags, int argc,
             }
           else if (str_has_prefix (argv[i], TIMEOUT_MATCH) && strlen (argv[i]) <= strlen (TIMEOUT_MATCH) + 2)
             {
-              timeout = atoi (argv[i] + strlen (TIMEOUT_MATCH));
+              int opt_timeout = atoi (argv[i] + strlen (TIMEOUT_MATCH));
+              timeout = (opt_timeout < 0 ? UINT_MAX : (unsigned) opt_timeout);
               if (timeout < MIN_TIMEOUT)
                 {
                   if (debug)

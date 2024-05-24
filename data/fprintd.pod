@@ -26,7 +26,7 @@ The B<fprintd> daemon is accessed through B<D-Bus> by those command-line utiliti
 
 The username for the user for which you want to query or modify the fingerprint database.
 
-Not that B<fprintd-list> and B<fprintd-delete> require at least one username to be passed, and support multiple usernames.
+Note that B<fprintd-list> and B<fprintd-delete> require at least one username to be passed, and support multiple usernames.
 
 B<fprintd-enroll> and B<fprintd-verify> will use the current username if none are passed on the command-line.
 
@@ -45,7 +45,7 @@ right-middle-finger,
 right-ring-finger,
 right-little-finger.
 
-The default is automatic, selecting the first available finger for swipe devices, or all the enrolled fingers, for press devices.
+The default is to choose automatically, selecting the first available finger for swipe devices, or all the enrolled fingers, for press devices.
 
 =back
 

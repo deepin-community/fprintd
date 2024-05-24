@@ -82,7 +82,7 @@ class TestPamFprintd(dbusmock.DBusTestCase):
         self.p_mock.wait()
 
     def setup_device(self):
-        device_path = self.obj_fprintd_mock.AddDevice('FDO Trigger Finger Laser Reader', 3, 'swipe')
+        device_path = self.obj_fprintd_mock.AddDevice('FDO Trigger Finger Laser Reader', 3, 'swipe', False)
         self.device_mock = self.dbus_con.get_object('net.reactivated.Fprint', device_path)
         self.device_mock.SetEnrolledFingers('toto', ['left-little-finger', 'right-little-finger'])
 
@@ -232,7 +232,7 @@ class TestPamFprintd(dbusmock.DBusTestCase):
         self.assertRegex(res.errors[0], r'Failed to match fingerprint')
 
     def test_pam_fprintd_dual_reader_auth(self):
-        device_path = self.obj_fprintd_mock.AddDevice('FDO Sandpaper Reader', 3, 'press')
+        device_path = self.obj_fprintd_mock.AddDevice('FDO Sandpaper Reader', 3, 'press', False)
         sandpaper_device_mock = self.dbus_con.get_object('net.reactivated.Fprint', device_path)
         sandpaper_device_mock.SetEnrolledFingers('toto', ['left-middle-finger', 'right-middle-finger'])
         script = [
@@ -251,12 +251,12 @@ class TestPamFprintd(dbusmock.DBusTestCase):
 
     def test_pam_fprintd_multi_reader_not_all_enrolled(self):
         # Add a 1st device with actual enrolled prints
-        device_path = self.obj_fprintd_mock.AddDevice('FDO Empty reader', 3, 'press')
+        device_path = self.obj_fprintd_mock.AddDevice('FDO Empty reader', 3, 'press', False)
         empty_reader = self.dbus_con.get_object('net.reactivated.Fprint', device_path)
         empty_reader.SetEnrolledFingers('toto', dbus.Array(set([]), signature='s')) 
 
         # Add a 2nd device with actual enrolled prints
-        device_path = self.obj_fprintd_mock.AddDevice('FDO Most Used Reader', 3, 'press')
+        device_path = self.obj_fprintd_mock.AddDevice('FDO Most Used Reader', 3, 'press', False)
         sandpaper_device_mock = self.dbus_con.get_object('net.reactivated.Fprint', device_path)
         sandpaper_device_mock.SetEnrolledFingers('toto', ['left-middle-finger', 'right-middle-finger'])
         script = [

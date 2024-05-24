@@ -2209,7 +2209,8 @@ fprint_device_enroll_start (FprintDBusDevice      *dbus_dev,
   priv->enroll_data = finger;
   priv->current_action = ACTION_ENROLL;
 
-  if (!fp_device_has_feature (priv->dev, FP_DEVICE_FEATURE_STORAGE_LIST) &&
+  if (fp_device_has_feature (priv->dev, FP_DEVICE_FEATURE_STORAGE) &&
+      !fp_device_has_feature (priv->dev, FP_DEVICE_FEATURE_STORAGE_LIST) &&
       is_first_enrollment (rdev))
     {
       g_autoptr(GError) clear_err = NULL;

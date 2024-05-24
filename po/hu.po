@@ -4,20 +4,22 @@
 #
 # Translators:
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2012
+# Acs Zoltan <acszoltan111@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-06-30 14:00+0200\n"
-"PO-Revision-Date: 2017-09-19 09:08+0000\n"
-"Last-Translator: kelemeng <kelemeng@ubuntu.com>\n"
-"Language-Team: Hungarian (http://www.transifex.com/freedesktop/fprintd/"
-"language/hu/)\n"
+"POT-Creation-Date: 2021-12-02 10:58+0100\n"
+"PO-Revision-Date: 2022-08-16 11:19+0000\n"
+"Last-Translator: Acs Zoltan <acszoltan111@gmail.com>\n"
+"Language-Team: Hungarian <https://translate.fedoraproject.org/projects/"
+"fprintd/fprintd/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.13\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -28,28 +30,28 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "Jogosultság szükséges az ujjlenyomatok ellenőrzéséhez."
 
 #: data/net.reactivated.fprint.device.policy.in:23
-msgid "Enroll new fingerprints"
-msgstr "Új ujjlenyomatok felvétele"
+msgid "Enroll or Delete fingerprints"
+msgstr "Ujjlenyomatok felvétele vagy törlése"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-msgid "Privileges are required to enroll new fingerprints."
-msgstr "Jogosultság szükséges új ujjlenyomatok felvételéhez."
+msgid "Privileges are required to enroll or delete fingerprints."
+msgstr "Jogosultság szükséges ujjlenyomatok felvételéhez vagy törléséhez."
 
 #: data/net.reactivated.fprint.device.policy.in:33
-msgid "Select a user to enroll"
-msgstr "Válassza ki a felveendő felhasználót"
+#, fuzzy
+msgid "Select a user to manage fingerprints for"
+msgstr "Válassza ki a felhasználót, aki kezeli az ujjlenyomatokat"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-msgid "Privileges are required to enroll new fingerprints for other users."
-msgstr ""
-"Jogosultság szükséges új ujjlenyomatok felvételéhez más felhasználóknak."
+msgid "Privileges are required to manage fingerprints for other users."
+msgstr "Jogosultság szükséges az ujjlenyomatok kezeléséhez más felhasználóknak."
 
-#: src/device.c:690
+#: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
 msgstr "Az eszközt használat előtt nem foglalták le"
 
-#: src/device.c:699
+#: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
 msgstr "Az eszközt már másik felhasználó használja"
@@ -274,13 +276,12 @@ msgstr "Vegye el az ujját és próbálja újra lehúzni"
 
 #: pam/pam_fprintd.c:537
 msgid "Verification timed out"
-msgstr ""
+msgstr "Az ellenőrzés kifutott az időből"
 
-#: pam/pam_fprintd.c:560
-#, fuzzy
+#: pam/pam_fprintd.c:542
 msgid "Failed to match fingerprint"
-msgstr "Ujjlenyomat ellenőrzése"
+msgstr "Nem sikerült felismerni az ujjlenyomatot"
 
-#: pam/pam_fprintd.c:576
+#: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "Egy ismeretlen hiba történt"
