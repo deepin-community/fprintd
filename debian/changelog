@@ -1,3 +1,9 @@
+fprintd (1.94.3-1deepin1) unstable; urgency=medium
+
+  * Add dep valgrind
+
+ -- xiangzelong <xiangzelong@deepin.org>  Wed, 29 May 2024 17:30:40 +0800
+
 fprintd (1.94.3-1) unstable; urgency=medium
 
   [ Marco Trevisan (Treviño) ]
