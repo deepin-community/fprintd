@@ -18,6 +18,7 @@ Build-Depends: debhelper-compat (= 13),
                python3-gi <!nocheck>,
                python3-pypamtest,
                libpam-wrapper,
+               valgrind,
                libxml2-utils <!nocheck>
 Build-Depends-Indep: gtk-doc-tools <!nodoc>, xsltproc <!nodoc>
 Standards-Version: 4.5.1
