@@ -1,6 +1,23 @@
 This file lists notable changes in each release. For the full history of all
 changes, see ChangeLog.
 
+Version 1.94.5:
+
+Highlights:
+ - fprintd now depends on libfprint 1.94.9
+ - Improved handling of device errors
+ - pam: reduce minimum timeout to 1 second
+ - pam: support unlimited timeout
+
+Version 1.94.4:
+
+Highlights:
+ - Support building in other non-linux unix platforms (FreeBSD tested)
+ - Bump minimum glib dependency version to 2.64
+ - Allow interactive DBus authorization on fprintd-tools
+ - Use prefix to determine the PAM modules dir
+ - Translation updates
+
 Version 1.94.3:
 
 Highlights:

@@ -29,18 +29,42 @@
 #include <sys/types.h>
 #include <string.h>
 #include <syslog.h>
+#include <time.h>
 #include <errno.h>
 
 #include <libintl.h>
+
+#ifdef FPRINTD_PAM_USE_BASU
+#include <basu/sd-bus.h>
+#else
 #include <systemd/sd-bus.h>
 #include <systemd/sd-login.h>
+#endif
+
+#ifdef __linux__
 #include <signal.h>
 #include <sys/signalfd.h>
 #include <poll.h>
+#endif
 
 #define PAM_SM_AUTH
 #include <security/pam_modules.h>
+#include <security/pam_appl.h>
+
+#ifndef FPRINTD_PAM_USE_OPENPAM
 #include <security/pam_ext.h>
+
+#define FPRINTD_PAM_INCOMPLETE PAM_INCOMPLETE
+
+#else /* defined (FPRINTD_PAM_USE_OPENPAM) */
+
+#include <security/openpam.h>
+
+#define pam_syslog(H, C, ...) \
+        syslog (C, __VA_ARGS__)
+
+#define FPRINTD_PAM_INCOMPLETE PAM_CONV_ERR
+#endif
 
 #define _(s) ((char *) dgettext (GETTEXT_PACKAGE, s))
 #define TR(s) dgettext (GETTEXT_PACKAGE, s)
@@ -51,7 +75,7 @@
 
 #define DEFAULT_MAX_TRIES 3
 #define DEFAULT_TIMEOUT 30
-#define MIN_TIMEOUT 10
+#define MIN_TIMEOUT 1
 
 #define DEBUG_MATCH "debug="
 #define MAX_TRIES_MATCH "max-tries="
@@ -373,6 +397,7 @@ verify_started_cb (sd_bus_message *m,
   return 1;
 }
 
+#ifdef __linux__
 static void
 fd_cleanup (int *fd)
 {
@@ -382,6 +407,7 @@ fd_cleanup (int *fd)
 
 typedef int fd_int;
 PF_DEFINE_AUTO_CLEAN_FUNC (fd_int, fd_cleanup);
+#endif
 
 static int
 do_verify (sd_bus      *bus,
@@ -390,8 +416,10 @@ do_verify (sd_bus      *bus,
   pf_autoptr (sd_bus_slot) verify_status_slot = NULL;
   pf_autoptr (sd_bus_slot) verify_finger_selected_slot = NULL;
   pf_autofree char *scan_type = NULL;
+#ifdef __linux__
   sigset_t signals;
   fd_int signal_fd = -1;
+#endif
   int r;
 
   /* Get some properties for the device */
@@ -442,9 +470,11 @@ do_verify (sd_bus      *bus,
                        verify_finger_selected,
                        data);
 
+#ifdef __linux__
   sigemptyset (&signals);
   sigaddset (&signals, SIGINT);
   signal_fd = signalfd (signal_fd, &signals, SFD_NONBLOCK);
+#endif
 
   while (data->max_tries > 0)
     {
@@ -455,7 +485,7 @@ do_verify (sd_bus      *bus,
 
       data->timed_out = false;
       data->verify_started = false;
-      data->verify_ret = PAM_INCOMPLETE;
+      data->verify_ret = FPRINTD_PAM_INCOMPLETE;
 
       free (data->result);
       data->result = NULL;
@@ -483,13 +513,18 @@ do_verify (sd_bus      *bus,
 
       for (;;)
         {
+#ifdef __linux__
           struct signalfd_siginfo siginfo;
-          int64_t wait_time;
+#endif
+          int64_t wait_time = INT64_MAX;
 
-          wait_time = verification_end - now ();
+          if (verification_end != ULONG_MAX)
+            wait_time = verification_end - now ();
+
           if (wait_time <= 0)
             break;
 
+#ifdef __linux__
           if (read (signal_fd, &siginfo, sizeof (siginfo)) > 0)
             {
               if (debug)
@@ -498,11 +533,12 @@ do_verify (sd_bus      *bus,
               /* The only way for this to happen is if we received SIGINT. */
               return PAM_AUTHINFO_UNAVAIL;
             }
+#endif
 
           r = sd_bus_process (bus, NULL);
           if (r < 0)
             break;
-          if (data->verify_ret != PAM_INCOMPLETE)
+          if (data->verify_ret != FPRINTD_PAM_INCOMPLETE)
             break;
           if (!data->verify_started)
             continue;
@@ -510,10 +546,12 @@ do_verify (sd_bus      *bus,
             break;
           if (r == 0)
             {
+#ifdef __linux__
               struct pollfd fds[2] = {
                 { sd_bus_get_fd (bus), sd_bus_get_events (bus), 0 },
                 { signal_fd, POLLIN, 0 },
               };
+#endif
 
               if (debug)
                 {
@@ -523,16 +561,21 @@ do_verify (sd_bus      *bus,
                               wait_time);
                 }
 
+#if defined(__linux__)
               r = poll (fds, 2, wait_time / USEC_PER_MSEC);
               if (r < 0 && errno != EINTR)
                 {
                   pam_syslog (data->pamh, LOG_ERR, "Error waiting for events: %d", errno);
                   return PAM_AUTHINFO_UNAVAIL;
                 }
+#else
+              if (sd_bus_wait (bus, wait_time) < 0)
+                break;
+#endif
             }
         }
 
-      if (data->verify_ret != PAM_INCOMPLETE)
+      if (data->verify_ret != FPRINTD_PAM_INCOMPLETE)
         return data->verify_ret;
 
       if (now () >= verification_end)
@@ -779,8 +822,10 @@ is_remote (pam_handle_t *pamh)
       strcmp (rhost, "localhost") != 0)
     return true;
 
+#ifndef FPRINTD_PAM_USE_BASU
   if (sd_session_is_remote (NULL) > 0)
     return true;
+#endif
 
   return false;
 }
@@ -848,7 +893,7 @@ pam_sm_authenticate (pam_handle_t *pamh, int flags, int argc,
               if (debug)
                 pam_syslog (pamh, LOG_DEBUG, "max_tries specified as: %d", max_tries);
             }
-          else if (str_has_prefix (argv[i], TIMEOUT_MATCH) && strlen (argv[i]) <= strlen (TIMEOUT_MATCH) + 2)
+          else if (str_has_prefix (argv[i], TIMEOUT_MATCH) && strlen (argv[i]) > strlen (TIMEOUT_MATCH))
             {
               int opt_timeout = atoi (argv[i] + strlen (TIMEOUT_MATCH));
               timeout = (opt_timeout < 0 ? UINT_MAX : (unsigned) opt_timeout);

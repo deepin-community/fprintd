@@ -10,7 +10,7 @@ docbook_xml_header = custom_target('docbook_xml_header',
 
 dbus_interfaces_refs = []
 foreach interface_file: dbus_interfaces
-    basename = run_command('basename', interface_file, '.xml').stdout().strip()
+    basename = run_command('basename', interface_file, '.xml', check: true).stdout().strip()
     dbus_interfaces_refs += custom_target(basename + '_ref',
         input: docbook_xml_header,
         output: basename + '.ref.xml',

@@ -27,7 +27,7 @@ polkit_policy = 'net.reactivated.fprint.device.policy'
 polkit_policy_target = i18n.merge_file(
     input: '@0@.in'.format(polkit_policy),
     output: polkit_policy,
-    po_dir: meson.source_root() / 'po',
+    po_dir: meson.project_source_root() / 'po',
     install: true,
     install_dir: polkit_policy_directory,
 )

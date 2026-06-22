@@ -40,6 +40,7 @@ ProtectClock=yes
 DeviceAllow=char-usb_device rw
 DeviceAllow=char-spi rw
 DeviceAllow=char-hidraw rw
+DeviceAllow=/dev/cros_fp rw
 
 # Allow tuning USB parameters (wakeup and persist)
 ReadWritePaths=/sys/devices

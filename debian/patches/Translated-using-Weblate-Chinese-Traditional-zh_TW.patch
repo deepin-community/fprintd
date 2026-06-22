@@ -1,0 +1,103 @@
+From: hsu zangmen <chzang55@gmail.com>
+Date: Wed, 2 Apr 2025 09:34:14 +0000
+Subject: Translated using Weblate (Chinese (Traditional) (zh_TW))
+
+Currently translated at 100.0% (67 of 67 strings)
+
+Co-authored-by: hsu zangmen <chzang55@gmail.com>
+Translate-URL: https://translate.fedoraproject.org/projects/fprintd/fprintd/zh_TW/
+Translation: fprintd/fprintd
+---
+ po/zh_TW.po | 35 ++++++++++++++++++-----------------
+ 1 file changed, 18 insertions(+), 17 deletions(-)
+
+diff --git a/po/zh_TW.po b/po/zh_TW.po
+index 6edfc9a..33affe0 100644
+--- a/po/zh_TW.po
++++ b/po/zh_TW.po
+@@ -5,13 +5,14 @@
+ # Translators:
+ # Cheng-Chia Tseng <pswo10680@gmail.com>, 2011, 2012
+ # Shihfu Juan <baby20030720@gmail.com>, 2024.
++# hsu zangmen <chzang55@gmail.com>, 2025.
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: fprintd\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2025-04-02 09:49+0000\n"
+-"PO-Revision-Date: 2024-08-30 02:37+0000\n"
+-"Last-Translator: Shihfu Juan <baby20030720@gmail.com>\n"
++"POT-Creation-Date: 2025-02-20 20:16+0000\n"
++"PO-Revision-Date: 2025-04-02 05:25+0000\n"
++"Last-Translator: hsu zangmen <chzang55@gmail.com>\n"
+ "Language-Team: Chinese (Traditional) <https://translate.fedoraproject.org/"
+ "projects/fprintd/fprintd/zh_TW/>\n"
+ "Language: zh_TW\n"
+@@ -19,7 +20,7 @@ msgstr ""
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=1; plural=0;\n"
+-"X-Generator: Weblate 5.7\n"
++"X-Generator: Weblate 5.10.4\n"
+ 
+ #: data/net.reactivated.fprint.device.policy.in:13
+ msgid "Verify a fingerprint"
+@@ -270,45 +271,45 @@ msgid "Your finger was not centered, try swiping your finger again"
+ msgstr "您的手指並非位於中央，請再次嘗試抹過您的手指"
+ 
+ #: pam/fingerprint-strings.h:181 pam/fingerprint-strings.h:227
+-#, fuzzy
+-#| msgid "Your finger was not centered, try swiping your finger again"
+ msgid "Your finger was not centered, try touching the sensor again"
+-msgstr "您的手指並非位於中央，請再次嘗試抹過您的手指"
++msgstr "您的手指未置於中間，請嘗試再次觸摸指紋感應器"
+ 
+ #: pam/fingerprint-strings.h:186 pam/fingerprint-strings.h:232
+ msgid "Remove your finger, and try swiping your finger again"
+ msgstr "請移開您的手指，並再次嘗試抹過您的手指"
+ 
+ #: pam/fingerprint-strings.h:188 pam/fingerprint-strings.h:234
+-#, fuzzy
+-#| msgid "Remove your finger, and try swiping your finger again"
+ msgid "Remove your finger, and try touching the sensor again"
+-msgstr "請移開您的手指，並再次嘗試抹過您的手指"
++msgstr "請移開您的手指，並嘗試再次碰觸指紋感應器"
+ 
+ #: pam/fingerprint-strings.h:193 pam/fingerprint-strings.h:239
+-#, fuzzy
+-#| msgid "Swipe was too short, try again"
+ msgid "Swipe was too fast, try again"
+-msgstr "抹動長度過短，請重試"
++msgstr "手指抹動時間太快，請再重試"
+ 
+ #: pam/fingerprint-strings.h:195 pam/fingerprint-strings.h:241
+-#, fuzzy
+-#| msgid "Swipe was too short, try again"
+ msgid "Finger scan was too fast, try again"
+-msgstr "抹動長度過短，請重試"
++msgstr "手指抹動掃描太快，請再重試"
+ 
+ #: pam/fingerprint-strings.h:199
+ msgid "An unexpected error happened during fingerprint verification"
+ msgstr ""
+ 
++#: pam/fingerprint-strings.h:199
++msgid "An unexpected error happened during finger verification"
++msgstr "手指驗證過程中發生了意外錯誤"
++
+ #: pam/fingerprint-strings.h:244
+ msgid "The fingerprint has been already enrolled. Try using another finger."
+-msgstr ""
++msgstr "指紋已登記。 請嘗試使用其他手指。"
+ 
+ #: pam/fingerprint-strings.h:248
+ msgid "An unexpected error happened during fingerprint enrollment"
+ msgstr ""
+ 
++#: pam/fingerprint-strings.h:248
++msgid "An unexpected error happened during finger enrollment"
++msgstr "手指註冊過程中發生了意外錯誤"
++
+ #: pam/pam_fprintd.c:584
+ msgid "Verification timed out"
+ msgstr "驗證逾時"

@@ -182,6 +182,12 @@
 						</doc:definition>
 					</doc:item>
 					<doc:item>
+						<doc:term>verify-too-fast</doc:term>
+						<doc:definition>
+							The user's swipe or touch was too fast. The user should retry scanning their finger, the verification is still ongoing.
+						</doc:definition>
+					</doc:item>
+					<doc:item>
 						<doc:term>verify-disconnected</doc:term>
 						<doc:definition>
 							The device was disconnected during the verification, no other actions should be taken, and you shouldn't use the device any more.
@@ -230,6 +236,12 @@
 						<doc:term>enroll-swipe-too-short</doc:term>
 						<doc:definition>
 							The user's swipe was too short. The user should retry scanning their finger, the enrollment is still ongoing.
+						</doc:definition>
+					</doc:item>
+					<doc:item>
+						<doc:term>enroll-too-fast</doc:term>
+						<doc:definition>
+							The user's swipe or touch was too short. The user should retry scanning their finger, the enrollment is still ongoing.
 						</doc:definition>
 					</doc:item>
 					<doc:item>

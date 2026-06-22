@@ -1,0 +1,103 @@
+From: Temuri Doghonadze <temuri.doghonadze@gmail.com>
+Date: Wed, 2 Apr 2025 09:34:13 +0000
+Subject: Translated using Weblate (Georgian)
+
+Currently translated at 100.0% (67 of 67 strings)
+
+Co-authored-by: Temuri Doghonadze <temuri.doghonadze@gmail.com>
+Translate-URL: https://translate.fedoraproject.org/projects/fprintd/fprintd/ka/
+Translation: fprintd/fprintd
+---
+ po/ka.po | 35 ++++++++++++++++++-----------------
+ 1 file changed, 18 insertions(+), 17 deletions(-)
+
+diff --git a/po/ka.po b/po/ka.po
+index cf1f305..552eda9 100644
+--- a/po/ka.po
++++ b/po/ka.po
+@@ -3,13 +3,13 @@
+ # This file is distributed under the same license as the PACKAGE package.
+ #
+ # Translators:
+-# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022.
++# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2022, 2025.
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: fprintd\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2025-04-02 09:49+0000\n"
+-"PO-Revision-Date: 2022-07-22 13:18+0000\n"
++"POT-Creation-Date: 2025-04-01 16:52+0200\n"
++"PO-Revision-Date: 2025-04-01 18:24+0000\n"
+ "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+ "Language-Team: Georgian <https://translate.fedoraproject.org/projects/"
+ "fprintd/fprintd/ka/>\n"
+@@ -18,7 +18,7 @@ msgstr ""
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=2; plural=n != 1;\n"
+-"X-Generator: Weblate 4.13\n"
++"X-Generator: Weblate 5.10.4\n"
+ 
+ #: data/net.reactivated.fprint.device.policy.in:13
+ msgid "Verify a fingerprint"
+@@ -271,45 +271,46 @@ msgid "Your finger was not centered, try swiping your finger again"
+ msgstr "თითი წამკითხველის შუაში უნდა გადაუსვათ. თავიდან სცადეთ"
+ 
+ #: pam/fingerprint-strings.h:181 pam/fingerprint-strings.h:227
+-#, fuzzy
+-#| msgid "Your finger was not centered, try swiping your finger again"
+ msgid "Your finger was not centered, try touching the sensor again"
+-msgstr "თითი წამკითხველის შუაში უნდა გადაუსვათ. თავიდან სცადეთ"
++msgstr ""
++"თითი წამკითხველის შუაში უნდა გადაუსვათ. სცადეთ, სენსორს კიდევ ერთხელ შეეხოთ"
+ 
+ #: pam/fingerprint-strings.h:186 pam/fingerprint-strings.h:232
+ msgid "Remove your finger, and try swiping your finger again"
+ msgstr "აიღეთ თითი და გადასმა თავიდან სცადეთ"
+ 
+ #: pam/fingerprint-strings.h:188 pam/fingerprint-strings.h:234
+-#, fuzzy
+-#| msgid "Remove your finger, and try swiping your finger again"
+ msgid "Remove your finger, and try touching the sensor again"
+-msgstr "აიღეთ თითი და გადასმა თავიდან სცადეთ"
++msgstr "აიღეთ თითი და თავიდან სცადეთ, სენსორს შეეხოთ"
+ 
+ #: pam/fingerprint-strings.h:193 pam/fingerprint-strings.h:239
+-#, fuzzy
+-#| msgid "Swipe was too short, try again"
+ msgid "Swipe was too fast, try again"
+-msgstr "გადასმა ძალიან მოკლე იყო. თავიდან სცადეთ"
++msgstr "გადასმა ძალიან სწრაფი იყო. თავიდან სცადეთ"
+ 
+ #: pam/fingerprint-strings.h:195 pam/fingerprint-strings.h:241
+-#, fuzzy
+-#| msgid "Swipe was too short, try again"
+ msgid "Finger scan was too fast, try again"
+-msgstr "გადასმა ძალიან მოკლე იყო. თავიდან სცადეთ"
++msgstr "თითი სკანირება ძალიან სწრაფი იყო. თავიდან სცადეთ"
+ 
+ #: pam/fingerprint-strings.h:199
+ msgid "An unexpected error happened during fingerprint verification"
+ msgstr ""
+ 
++#: pam/fingerprint-strings.h:199
++msgid "An unexpected error happened during finger verification"
++msgstr "მოულოდნელი შეცდომა ანაბეჭდის გადამოწმებისას"
++
+ #: pam/fingerprint-strings.h:244
+ msgid "The fingerprint has been already enrolled. Try using another finger."
+-msgstr ""
++msgstr "ანაბეჭდი უკვე ჩაწერილია. სცადეთ, სხვა თითი გამოიყენოთ."
+ 
+ #: pam/fingerprint-strings.h:248
+ msgid "An unexpected error happened during fingerprint enrollment"
+ msgstr ""
+ 
++#: pam/fingerprint-strings.h:248
++msgid "An unexpected error happened during finger enrollment"
++msgstr "მოულოდბელი შეცდომა თითის ანაბეჭდის დამატებისას"
++
+ #: pam/pam_fprintd.c:584
+ msgid "Verification timed out"
+ msgstr "შემოწმების დრო გავიდა"

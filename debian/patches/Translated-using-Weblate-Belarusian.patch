@@ -1,0 +1,50 @@
+From: Yauhen Bugamol <bugamol@users.noreply.translate.fedoraproject.org>
+Date: Mon, 31 Mar 2025 18:53:42 +0000
+Subject: Translated using Weblate (Belarusian)
+
+Currently translated at 100.0% (60 of 60 strings)
+
+Co-authored-by: Yauhen Bugamol <bugamol@users.noreply.translate.fedoraproject.org>
+Translate-URL: https://translate.fedoraproject.org/projects/fprintd/fprintd/be/
+Translation: fprintd/fprintd
+---
+ po/be.po | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/po/be.po b/po/be.po
+index 506314d..c872eb6 100644
+--- a/po/be.po
++++ b/po/be.po
+@@ -4,13 +4,15 @@
+ #
+ # Translators:
+ # Yauhen Bugamol <3abac@3a.by>, 2024.
++# Yauhen Bugamol <bugamol@users.noreply.translate.fedoraproject.org>, 2025.
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: fprintd\n"
+ "Report-Msgid-Bugs-To: \n"
+ "POT-Creation-Date: 2021-12-02 10:58+0100\n"
+-"PO-Revision-Date: 2024-08-31 18:38+0000\n"
+-"Last-Translator: Yauhen Bugamol <3abac@3a.by>\n"
++"PO-Revision-Date: 2025-03-31 18:53+0000\n"
++"Last-Translator: Yauhen Bugamol "
++"<bugamol@users.noreply.translate.fedoraproject.org>\n"
+ "Language-Team: Belarusian <https://translate.fedoraproject.org/projects/"
+ "fprintd/fprintd/be/>\n"
+ "Language: be\n"
+@@ -19,7 +21,7 @@ msgstr ""
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+ "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+-"X-Generator: Weblate 5.7.1\n"
++"X-Generator: Weblate 5.10.4\n"
+ 
+ #: data/net.reactivated.fprint.device.policy.in:13
+ msgid "Verify a fingerprint"
+@@ -287,4 +289,4 @@ msgstr "Не ўдалося выявіць адпаведны адбітак"
+ 
+ #: pam/pam_fprintd.c:580
+ msgid "An unknown error occurred"
+-msgstr "Узнікла невядомая памылка"
++msgstr "Адбылася невядомая памылка"

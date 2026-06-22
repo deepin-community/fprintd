@@ -1,12 +1,12 @@
 project('fprintd', 'c',
-    version: '1.94.3',
+    version: '1.94.5',
     license: 'GPLv2+',
     default_options: [
         'buildtype=debugoptimized',
         'warning_level=3',
         'c_std=gnu99',
     ],
-    meson_version: '>= 0.50.0')
+    meson_version: '>= 0.58.0')
 
 gnome = import('gnome')
 i18n = import('i18n')
@@ -62,9 +62,8 @@ common_cflags = cc.get_supported_arguments([
 add_project_arguments(common_cflags, language: 'c')
 
 host_system = host_machine.system()
-# NOTE: Bump gdbus-codegen min version once we can depend on 2.64!
-glib_min_version = '2.56'
-libfprint_min_version = '1.94.0'
+glib_min_version = '2.64'
+libfprint_min_version = '1.94.9'
 
 glib_version_def = 'GLIB_VERSION_@0@_@1@'.format(
     glib_min_version.split('.')[0], glib_min_version.split('.')[1])
@@ -92,11 +91,41 @@ gmodule_dep = dependency('gmodule-2.0', version: '>=' + glib_min_version)
 libfprint_dep = dependency('libfprint-2', version: '>=' + libfprint_min_version)
 polkit_gobject_dep = dependency('polkit-gobject-1', version: '>= 0.91')
 dbus_dep = dependency('dbus-1', required: false)
-libsystemd_dep = dependency(get_option('libsystemd'), required: get_option('pam'))
-pam_dep = cc.find_library('pam',
-    required: get_option('pam'),
-    has_headers: 'security/pam_modules.h',
-)
+
+if get_option('pam')
+  libsystemd_dep = dependency(get_option('libsystemd'), required: true)
+
+  has_openpam = false
+  pam_dep = cc.find_library('pam',
+      required: true,
+      has_headers: 'security/pam_modules.h',
+  )
+
+  # Check if the PAM implementation is OpenPAM instead of linux-pam
+  if host_machine.system().endswith('bsd') or host_machine.system() == 'dragonfly'
+    has_openpam = cc.compiles('''
+       #include <security/pam_modules.h>
+       #include <security/openpam.h>
+       int main(void) { return 0; }
+      ''',
+      dependencies: pam_dep,
+      name: 'openpam',
+    )
+    assert(has_openpam)
+  endif
+endif
+
+if host_machine.system() == 'linux' or host_machine.system() == 'gnu'
+  gettext_deps = []
+elif (host_machine.system() == 'freebsd' or
+      host_machine.system() == 'openbsd' or
+      host_machine.system() == 'dragonfly')
+  gettext_deps = [cc.find_library('intl', dirs: ['/usr/local/lib'])]
+elif host_machine.system() == 'netbsd'
+  gettext_deps = [cc.find_library('intl', dirs: ['/usr/pkg/lib'])]
+else # darwin, cygwin
+  gettext_deps = [cc.find_library('intl')]
+endif
 
 pod2man = find_program('pod2man', required: get_option('man'))
 xsltproc = find_program('xsltproc', required: get_option('gtk_doc'))
@@ -106,7 +135,7 @@ systemd_dep = dependency('systemd', version: '>= 235', required: false)
 systemd_unit_dir = get_option('systemd_system_unit_dir')
 
 if systemd_unit_dir == '' and systemd_dep.found()
-    systemd_unit_dir = systemd_dep.get_pkgconfig_variable('systemdsystemunitdir')
+    systemd_unit_dir = systemd_dep.get_variable('systemdsystemunitdir')
 endif
 
 if get_option('systemd') and systemd_unit_dir == ''
@@ -119,10 +148,10 @@ dbus_interfaces_dir = ''
 
 if dbus_dep.found()
     if dbus_service_dir == ''
-        dbus_service_dir = dbus_dep.get_pkgconfig_variable('system_bus_services_dir')
+        dbus_service_dir = dbus_dep.get_variable('system_bus_services_dir')
     endif
-    dbus_interfaces_dir = dbus_dep.get_pkgconfig_variable('interfaces_dir')
-    dbus_data_dir = dbus_dep.get_pkgconfig_variable('datadir')
+    dbus_interfaces_dir = dbus_dep.get_variable('interfaces_dir')
+    dbus_data_dir = dbus_dep.get_variable('datadir')
 endif
 
 dbus_conf_dir = dbus_data_dir / 'dbus-1/system.d'
@@ -134,7 +163,7 @@ if dbus_interfaces_dir == ''
     dbus_interfaces_dir = datadir / 'dbus-1/interfaces'
 endif
 
-polkit_policy_directory = polkit_gobject_dep.get_pkgconfig_variable('policydir')
+polkit_policy_directory = polkit_gobject_dep.get_variable('policydir')
 
 # Tests dependencies
 pam_wrapper_dep = dependency('pam_wrapper', required: false)
@@ -155,7 +184,7 @@ python3_test_modules = {
 python3_available_modules = []
 
 foreach module, required : python3_test_modules
-    if required and run_command(python3, '-c', 'import @0@'.format(module)).returncode() != 0
+    if required and run_command(python3, '-c', 'import @0@'.format(module), check: false).returncode() != 0
         warning('Python3 module \'' + module + '\' required by test suite not found')
     endif
 endforeach
@@ -200,7 +229,7 @@ if get_option('pam')
     output += '  PAM module directory: ' + pam_modules_dir
 endif
 output += '\nOptional features:\n'
-output += '  PAM module: ' + (pam_dep.found() and get_option('pam')).to_string()
+output += '  PAM module: ' + (get_option('pam') and pam_dep.found()).to_string()
 output += '  Manuals: ' + get_option('man').to_string()
 output += '  GTK Doc: ' + get_option('gtk_doc').to_string()
 output += '  XML Linter ' + xmllint.found().to_string()

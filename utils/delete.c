@@ -57,10 +57,12 @@ delete_user_prints (FprintDBusDevice *dev,
 {
   if (fingername)
     return fprint_dbus_device_call_delete_enrolled_finger_sync (dev, fingername,
-                                                                NULL, error);
+                                                                G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                                                -1, NULL, error);
   else
-    return fprint_dbus_device_call_delete_enrolled_fingers2_sync (dev, NULL,
-                                                                  error);
+    return fprint_dbus_device_call_delete_enrolled_fingers2_sync (dev,
+                                                                  G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                                                  -1, NULL, error);
 }
 
 static void
@@ -70,7 +72,9 @@ delete_fingerprints (FprintDBusDevice *dev,
 {
   g_autoptr(GError) error = NULL;
 
-  if (!fprint_dbus_device_call_claim_sync (dev, username, NULL, &error))
+  if (!fprint_dbus_device_call_claim_sync (dev, username,
+                                           G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                           -1, NULL, &error))
     {
       g_print ("failed to claim device: %s\n", error->message);
       exit (1);
@@ -115,7 +119,9 @@ delete_fingerprints (FprintDBusDevice *dev,
     }
   g_clear_error (&error);
 
-  if (!fprint_dbus_device_call_release_sync (dev, NULL, &error))
+  if (!fprint_dbus_device_call_release_sync (dev,
+                                             G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                             -1, NULL, &error))
     {
       g_print ("ReleaseDevice failed: %s\n", error->message);
       exit (1);
@@ -133,8 +139,9 @@ process_devices (guint argc, char **argv)
   guint num_devices;
   guint i;
 
-  if (!fprint_dbus_manager_call_get_devices_sync (manager, &devices,
-                                                  NULL, &error))
+  if (!fprint_dbus_manager_call_get_devices_sync (manager,
+                                                  G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                                  -1, &devices, NULL, &error))
     {
       g_print ("Impossible to get devices: %s\n", error->message);
       exit (1);

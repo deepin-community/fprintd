@@ -1,0 +1,39 @@
+From: Marco Trevisan <mail@3v1n0.net>
+Date: Wed, 2 Apr 2025 11:05:42 +0000
+Subject: po/fprintd.pot: Update via pipeline 1395148
+
+---
+ po/fprintd.pot | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/po/fprintd.pot b/po/fprintd.pot
+index de2ea63..14c794f 100644
+--- a/po/fprintd.pot
++++ b/po/fprintd.pot
+@@ -8,7 +8,7 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: fprintd\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2025-04-01 16:52+0200\n"
++"POT-Creation-Date: 2025-04-02 09:49+0000\n"
+ "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+ "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+ "Language-Team: LANGUAGE <LL@li.org>\n"
+@@ -286,7 +286,7 @@ msgid "Finger scan was too fast, try again"
+ msgstr ""
+ 
+ #: pam/fingerprint-strings.h:199
+-msgid "An unexpected error happened during finger verification"
++msgid "An unexpected error happened during fingerprint verification"
+ msgstr ""
+ 
+ #: pam/fingerprint-strings.h:244
+@@ -294,7 +294,7 @@ msgid "The fingerprint has been already enrolled. Try using another finger."
+ msgstr ""
+ 
+ #: pam/fingerprint-strings.h:248
+-msgid "An unexpected error happened during finger enrollment"
++msgid "An unexpected error happened during fingerprint enrollment"
+ msgstr ""
+ 
+ #: pam/pam_fprintd.c:584

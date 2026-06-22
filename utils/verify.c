@@ -62,8 +62,10 @@ open_device (const char *username)
   g_autoptr(GError) error = NULL;
   g_autofree char *path = NULL;
 
-  if (!fprint_dbus_manager_call_get_default_device_sync (manager, &path,
-                                                         NULL, &error))
+  if (!fprint_dbus_manager_call_get_default_device_sync (manager,
+                                                         G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                                         -1,
+                                                         &path, NULL, &error))
     {
       g_print ("Impossible to verify: %s\n", error->message);
       exit (1);
@@ -82,7 +84,9 @@ open_device (const char *username)
       exit (1);
     }
 
-  if (!fprint_dbus_device_call_claim_sync (dev, username, NULL, &error))
+  if (!fprint_dbus_device_call_claim_sync (dev, username,
+                                           G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                           -1, NULL, &error))
     {
       g_print ("failed to claim device: %s\n", error->message);
       exit (1);
@@ -99,6 +103,8 @@ find_finger (FprintDBusDevice *dev, const char *username)
   guint i;
 
   if (!fprint_dbus_device_call_list_enrolled_fingers_sync (dev, username,
+                                                           G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                                           -1,
                                                            &fingers,
                                                            NULL, &error))
     {
@@ -218,7 +224,10 @@ do_verify (FprintDBusDevice *dev)
   g_signal_connect (dev, "g-signal", G_CALLBACK (proxy_signal_cb),
                     &verify_state);
 
-  fprint_dbus_device_call_verify_start (dev, finger_name, NULL,
+  fprint_dbus_device_call_verify_start (dev, finger_name,
+                                        G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                        -1,
+                                        NULL,
                                         verify_started_cb,
                                         &verify_state);
 
@@ -241,7 +250,10 @@ do_verify (FprintDBusDevice *dev)
   g_signal_handlers_disconnect_by_func (dev, proxy_signal_cb,
                                         &verify_state);
 
-  if (!fprint_dbus_device_call_verify_stop_sync (dev, NULL, &error))
+  if (!fprint_dbus_device_call_verify_stop_sync (dev,
+                                                 G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                                 -1,
+                                                 NULL, &error))
     {
       g_print ("VerifyStop failed: %s\n", error->message);
       exit (1);
@@ -254,7 +266,10 @@ static void
 release_device (FprintDBusDevice *dev)
 {
   g_autoptr(GError) error = NULL;
-  if (!fprint_dbus_device_call_release_sync (dev, NULL, &error))
+  if (!fprint_dbus_device_call_release_sync (dev,
+                                             G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                             -1,
+                                             NULL, &error))
     {
       g_print ("ReleaseDevice failed: %s\n", error->message);
       exit (1);

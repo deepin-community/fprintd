@@ -5,8 +5,8 @@ Maintainer: FingerForce Team <fingerforce-devel@lists.alioth.debian.org>
 Uploaders: Marco Trevisan <marco@ubuntu.com>
 Build-Depends: debhelper-compat (= 13),
                dh-exec,
-               libfprint-2-dev (>= 1:1.94.0),
-               libglib2.0-dev (>= 2.56),
+               libfprint-2-dev (>= 1:1.94.9),
+               libglib2.0-dev (>= 2.64),
                libpam0g-dev,
                libpolkit-gobject-1-dev,
                libsystemd-dev (>= 235) [linux-any],
@@ -18,10 +18,9 @@ Build-Depends: debhelper-compat (= 13),
                python3-gi <!nocheck>,
                python3-pypamtest,
                libpam-wrapper,
-               valgrind,
                libxml2-utils <!nocheck>
 Build-Depends-Indep: gtk-doc-tools <!nodoc>, xsltproc <!nodoc>
-Standards-Version: 4.5.1
+Standards-Version: 4.7.0
 Homepage: https://www.freedesktop.org/wiki/Software/fprint/fprintd
 Vcs-Git: https://salsa.debian.org/debian/fprintd.git
 Vcs-Browser: https://salsa.debian.org/debian/fprintd

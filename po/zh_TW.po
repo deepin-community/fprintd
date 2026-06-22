@@ -4,20 +4,22 @@
 #
 # Translators:
 # Cheng-Chia Tseng <pswo10680@gmail.com>, 2011, 2012
+# Shihfu Juan <baby20030720@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-02 10:58+0100\n"
-"PO-Revision-Date: 2017-09-19 09:08+0000\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/freedesktop/"
-"fprintd/language/zh_TW/)\n"
+"PO-Revision-Date: 2024-08-30 02:37+0000\n"
+"Last-Translator: Shihfu Juan <baby20030720@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <https://translate.fedoraproject.org/"
+"projects/fprintd/fprintd/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.7\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -28,24 +30,20 @@ msgid "Privileges are required to verify fingerprints."
 msgstr "需要有特權才能驗證指紋。"
 
 #: data/net.reactivated.fprint.device.policy.in:23
-#, fuzzy
 msgid "Enroll or Delete fingerprints"
-msgstr "登記新指紋"
+msgstr "登記或刪除新指紋"
 
 #: data/net.reactivated.fprint.device.policy.in:24
-#, fuzzy
 msgid "Privileges are required to enroll or delete fingerprints."
-msgstr "需要有特權才能登記新指紋。"
+msgstr "需要更高的權限才能登記或刪除指紋。"
 
 #: data/net.reactivated.fprint.device.policy.in:33
-#, fuzzy
 msgid "Select a user to manage fingerprints for"
-msgstr "選取使用者以登記"
+msgstr "選取使用者以管理其指紋"
 
 #: data/net.reactivated.fprint.device.policy.in:34
-#, fuzzy
 msgid "Privileges are required to manage fingerprints for other users."
-msgstr "需要有特權才能為其他使用者登記新指紋。"
+msgstr "需要更高的權限來管理其他使用者的指紋。"
 
 #: src/device.c:783
 #, c-format
@@ -277,13 +275,12 @@ msgstr "請移開您的手指，並再次嘗試抹過您的手指"
 
 #: pam/pam_fprintd.c:537
 msgid "Verification timed out"
-msgstr ""
+msgstr "驗證逾時"
 
 #: pam/pam_fprintd.c:542
-#, fuzzy
 msgid "Failed to match fingerprint"
-msgstr "驗證指紋"
+msgstr "指紋不匹配"
 
 #: pam/pam_fprintd.c:580
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "遭遇未知錯誤"

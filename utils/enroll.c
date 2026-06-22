@@ -70,8 +70,9 @@ open_device (const char *username)
   g_autoptr(GError) error = NULL;
   g_autofree char *path = NULL;
 
-  if (!fprint_dbus_manager_call_get_default_device_sync (manager, &path,
-                                                         NULL, &error))
+  if (!fprint_dbus_manager_call_get_default_device_sync (manager,
+                                                         G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                                         -1, &path, NULL, &error))
     {
       g_print ("Impossible to enroll: %s\n", error->message);
       exit (1);
@@ -90,7 +91,9 @@ open_device (const char *username)
       exit (1);
     }
 
-  if (!fprint_dbus_device_call_claim_sync (dev, username, NULL, &error))
+  if (!fprint_dbus_device_call_claim_sync (dev, username,
+                                           G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                           -1, NULL, &error))
     {
       g_print ("failed to claim device: %s\n", error->message);
       exit (1);
@@ -167,8 +170,10 @@ do_enroll (FprintDBusDevice *dev)
     }
 
   g_print ("Enrolling %s finger.\n", finger_name);
-  if (!fprint_dbus_device_call_enroll_start_sync (dev, finger_name, NULL,
-                                                  &error))
+  if (!fprint_dbus_device_call_enroll_start_sync (dev, finger_name,
+                                                  G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                                  -1,
+                                                  NULL, &error))
     {
       g_print ("EnrollStart failed: %s\n", error->message);
       exit (1);
@@ -179,7 +184,9 @@ do_enroll (FprintDBusDevice *dev)
 
   g_signal_handlers_disconnect_by_func (dev, proxy_signal_cb, &enroll_status);
 
-  if (!fprint_dbus_device_call_enroll_stop_sync (dev, NULL, &error))
+  if (!fprint_dbus_device_call_enroll_stop_sync (dev,
+                                                 G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                                 -1, NULL, &error))
     {
       g_print ("EnrollStop failed: %s\n", error->message);
       exit (1);
@@ -192,7 +199,9 @@ static void
 release_device (FprintDBusDevice *dev)
 {
   g_autoptr(GError) error = NULL;
-  if (!fprint_dbus_device_call_release_sync (dev, NULL, &error))
+  if (!fprint_dbus_device_call_release_sync (dev,
+                                             G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                             -1, NULL, &error))
     {
       g_print ("ReleaseDevice failed: %s\n", error->message);
       exit (1);

@@ -157,7 +157,6 @@ finger_str_to_msg (const char *finger_name, const char *driver_name, bool is_swi
 /* Cases not handled:
  * verify-no-match
  * verify-match
- * verify-unknown-error
  */
 GNUC_UNUSED static const char *
 verify_result_str_to_msg (const char *result, bool is_swipe)
@@ -175,17 +174,35 @@ verify_result_str_to_msg (const char *result, bool is_swipe)
   if (strcmp (result, "verify-swipe-too-short") == 0)
     return TR (N_("Swipe was too short, try again"));
   if (strcmp (result, "verify-finger-not-centered") == 0)
-    return TR (N_("Your finger was not centered, try swiping your finger again"));
+    {
+      if (is_swipe)
+        return TR (N_("Your finger was not centered, try swiping your finger again"));
+      else
+        return TR (N_("Your finger was not centered, try touching the sensor again"));
+    }
   if (strcmp (result, "verify-remove-and-retry") == 0)
-    return TR (N_("Remove your finger, and try swiping your finger again"));
+    {
+      if (is_swipe)
+        return TR (N_("Remove your finger, and try swiping your finger again"));
+      else
+        return TR (N_("Remove your finger, and try touching the sensor again"));
+    }
+  if (strcmp (result, "verify-too-fast") == 0)
+    {
+      if (is_swipe)
+        return TR (N_("Swipe was too fast, try again"));
+      else
+        return TR (N_("Finger scan was too fast, try again"));
+    }
+
+  if (strcmp (result, "verify-unknown-error") == 0)
+    return TR (N_("An unexpected error happened during finger verification"));
 
   return NULL;
 }
 
 /* Cases not handled:
  * enroll-completed
- * enroll-failed
- * enroll-unknown-error
  */
 GNUC_UNUSED static const char *
 enroll_result_str_to_msg (const char *result, bool is_swipe)
@@ -203,9 +220,32 @@ enroll_result_str_to_msg (const char *result, bool is_swipe)
   if (strcmp (result, "enroll-swipe-too-short") == 0)
     return TR (N_("Swipe was too short, try again"));
   if (strcmp (result, "enroll-finger-not-centered") == 0)
-    return TR (N_("Your finger was not centered, try swiping your finger again"));
+    {
+      if (is_swipe)
+        return TR (N_("Your finger was not centered, try swiping your finger again"));
+      else
+        return TR (N_("Your finger was not centered, try touching the sensor again"));
+    }
   if (strcmp (result, "enroll-remove-and-retry") == 0)
-    return TR (N_("Remove your finger, and try swiping your finger again"));
+    {
+      if (is_swipe)
+        return TR (N_("Remove your finger, and try swiping your finger again"));
+      else
+        return TR (N_("Remove your finger, and try touching the sensor again"));
+    }
+  if (strcmp (result, "enroll-too-fast") == 0)
+    {
+      if (is_swipe)
+        return TR (N_("Swipe was too fast, try again"));
+      else
+        return TR (N_("Finger scan was too fast, try again"));
+    }
+  if (strcmp (result, "enroll-duplicate") == 0)
+    return TR (N_("The fingerprint has been already enrolled. Try using another finger."));
+
+  if (strcmp (result, "enroll-failed") == 0 ||
+      strcmp (result, "enroll-unknown-error") == 0)
+    return TR (N_("An unexpected error happened during finger enrollment"));
 
   return NULL;
 }
