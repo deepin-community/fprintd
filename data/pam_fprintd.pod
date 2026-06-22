@@ -27,10 +27,16 @@ pam_syslog which means that they will be saved in the systemd journal by default
 The number of attempts at fingerprint authentication to try before returning an
 authentication failure. The minimum number of tries is 1 while the default is 3.
 
+Use a negative value to set no limit at all, so that the module won't ever error on multiple
+retries, but in such case it's suggested for the module loader to handle this.
+
 =item B<timeout=I<TIMEOUT>>
 
 The amount of time before returning an authentication failure. The default timeout
-is 30 seconds, with 10 seconds being the minimum.
+is 30 seconds, with 1 second being the minimum.
+
+Use a negative value to set no limit at all, so that fingerprint authentication will
+be always active while this module is loaded.
 
 =back
 

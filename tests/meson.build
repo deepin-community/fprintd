@@ -31,8 +31,8 @@ foreach t: tests
             'env': [
                 'G_DEBUG=fatal-criticals',
                 'G_MESSAGES_DEBUG=all',
-                'FPRINT_BUILD_DIR=' + meson.build_root() / 'src',
-                'TOPSRCDIR=' + meson.source_root(),
+                'FPRINT_BUILD_DIR=' + meson.project_build_root() / 'src',
+                'TOPSRCDIR=' + meson.project_source_root(),
             ],
             'depends': [
                 fprintd,
@@ -52,7 +52,7 @@ endif
 unittest_inspector = find_program('unittest_inspector.py')
 
 foreach pt: python_tests
-    r = run_command(unittest_inspector, pt.get('file'))
+    r = run_command(unittest_inspector, pt.get('file'), check: false)
     unit_tests = r.stdout().strip().split('\n')
     base_args = [ pt.get('file') ] + pt.get('extra_args', [])
     suite = pt.get('suite', [])
@@ -75,7 +75,7 @@ foreach pt: python_tests
             args: ut_args,
             suite: ut_suite,
             depends: pt.get('depends', []),
-            workdir: pt.get('workdir', meson.build_root()),
+            workdir: pt.get('workdir', meson.project_build_root()),
             env: pt.get('env', []),
             timeout: pt.get('timeout', 30),
             is_parallel: pt.get('is_parallel', true),
@@ -90,6 +90,13 @@ test_envs = [
 ]
 
 if address_sanitizer
+    lsan_suppress = files('LSAN-leaks-suppress.txt')[0]
+    if meson.version().version_compare('>=1.4')
+        lsan_suppress = lsan_suppress.full_path()
+    else
+        lsan_suppress = meson.project_source_root() / '@0@'.format(lsan_suppress)
+    endif
+
     timeout_multiplier = 3
     test_envs += [
         'ADDRESS_SANITIZER=true',
@@ -100,8 +107,7 @@ if address_sanitizer
         'LSAN_OPTIONS=@0@'.format(':'.join([
             'exitcode=0',
             'strict_string_checks=true',
-            'suppressions=@0@'.format(
-                files(meson.current_source_dir() / 'LSAN-leaks-suppress.txt')[0]),
+            'suppressions=@0@'.format(lsan_suppress),
         ])),
     ]
 endif
@@ -113,7 +119,7 @@ add_test_setup('default_setup',
 )
 
 if not address_sanitizer and find_program('valgrind', required: false).found()
-    glib_share = glib_dep.get_pkgconfig_variable('prefix') / 'share' / glib_dep.name()
+    glib_share = glib_dep.get_variable('prefix') / 'share' / glib_dep.name()
     glib_suppressions = glib_share + '/valgrind/glib.supp'
     add_test_setup('valgrind',
         env: [

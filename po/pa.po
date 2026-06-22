@@ -4,13 +4,13 @@
 #
 # Translators:
 # A S Alam <alam.yellow@gmail.com>, 2012-2013
-# A S Alam <aalam@users.noreply.translate.fedoraproject.org>, 2023.
+# A S Alam <aalam@users.noreply.translate.fedoraproject.org>, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: fprintd\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-12-02 10:58+0100\n"
-"PO-Revision-Date: 2023-12-28 14:36+0000\n"
+"PO-Revision-Date: 2024-07-17 12:38+0000\n"
 "Last-Translator: A S Alam <aalam@users.noreply.translate.fedoraproject.org>\n"
 "Language-Team: Punjabi <https://translate.fedoraproject.org/projects/fprintd/"
 "fprintd/pa/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.6.2\n"
 
 #: data/net.reactivated.fprint.device.policy.in:13
 msgid "Verify a fingerprint"
@@ -31,7 +31,7 @@ msgstr "ਉਂਗਲ-ਨਿਸ਼ਾਨ ਜਾਂਚ ਕਰਨ ਲਈ ਅਧਿ�
 
 #: data/net.reactivated.fprint.device.policy.in:23
 msgid "Enroll or Delete fingerprints"
-msgstr "ਉਂਗਲ-ਨਿਸ਼ਾਨਾਂ ਦਾਖ਼ਲ ਕਰੋ ਜਾਂ ਹਟਾਓ"
+msgstr "ਉਂਗਲ-ਨਿਸ਼ਾਨਾਂ ਨੂੰ ਦਾਖ਼ਲ ਕਰੋ ਜਾਂ ਹਟਾਓ"
 
 #: data/net.reactivated.fprint.device.policy.in:24
 msgid "Privileges are required to enroll or delete fingerprints."
@@ -48,12 +48,12 @@ msgstr "ਹੋਰ ਵਰਤੋਂਕਾਰਾਂ ਦੇ ਉਂਗਲ-ਨਿਸ�
 #: src/device.c:783
 #, c-format
 msgid "Device was not claimed before use"
-msgstr "ਜੰਤਰ ਪਹਿਲਾਂ ਕਦੇ ਵਰਤਿਆ ਨਹੀਂ ਗਿਆ ਸੀ"
+msgstr "ਡਿਵਾਈਸ ਪਹਿਲਾਂ ਕਦੇ ਵਰਤਿਆ ਨਹੀਂ ਗਿਆ ਸੀ"
 
 #: src/device.c:792
 #, c-format
 msgid "Device already in use by another user"
-msgstr "ਜੰਤਰ ਕਿਸੇ ਹੋਰ ਯੂਜ਼ਰ ਵਲੋਂ ਪਹਿਲਾਂ ਹੀ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ"
+msgstr "ਡਿਵਾਈਸ ਕਿਸੇ ਹੋਰ ਵਰਤੋਂਕਾਰ ਵਲੋਂ ਪਹਿਲਾਂ ਹੀ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ"
 
 #: pam/fingerprint-strings.h:50
 msgid "Place your finger on the fingerprint reader"
@@ -215,7 +215,7 @@ msgstr "ਆਪਣੀ ਸੱਜੀ ਵੱਡੀ ਉਂਗਲ ਨੂੰ ਫਿੰ�
 #: pam/fingerprint-strings.h:93
 #, c-format
 msgid "Swipe your right middle finger across %s"
-msgstr "ਆਪਣੀ ਸੱਜੀ ਵੱਡੀ ਉਂਗਲ ਨੂੰ ਫਿੰਗਰਪਰਿੰਟ ਰੀਡਰ ਉੱਤੇ ਘਸਾਓ"
+msgstr "ਆਪਣੀ ਸੱਜੀ ਵੱਡੀ ਉਂਗਲ ਨੂੰ %s ਉੱਤੇ ਘਸਾਓ"
 
 #: pam/fingerprint-strings.h:95
 msgid "Place your right ring finger on the fingerprint reader"

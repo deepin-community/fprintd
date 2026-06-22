@@ -58,7 +58,8 @@ list_fingerprints (FprintDBusDevice *dev, const char *username)
   guint i;
 
   if (!fprint_dbus_device_call_list_enrolled_fingers_sync (dev, username,
-                                                           &fingers, NULL,
+                                                           G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                                           -1, &fingers, NULL,
                                                            &error))
     {
       gboolean ignore_error = FALSE;
@@ -103,8 +104,10 @@ process_devices (char **argv)
   guint num_devices;
   guint i;
 
-  if (!fprint_dbus_manager_call_get_devices_sync (manager, &devices, NULL,
-                                                  &error))
+  if (!fprint_dbus_manager_call_get_devices_sync (manager,
+                                                  G_DBUS_CALL_FLAGS_ALLOW_INTERACTIVE_AUTHORIZATION,
+                                                  -1,
+                                                  &devices, NULL, &error))
     {
       g_print ("Impossible to get devices: %s\n", error->message);
       exit (1);

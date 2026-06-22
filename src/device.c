@@ -602,6 +602,9 @@ verify_result_to_name (gboolean match, GError *error)
         case FP_DEVICE_RETRY_REMOVE_FINGER:
           return "verify-remove-and-retry";
 
+        case FP_DEVICE_RETRY_TOO_FAST:
+          return "verify-too-fast";
+
         default:
           return "verify-retry-scan";
         }
@@ -612,6 +615,10 @@ verify_result_to_name (gboolean match, GError *error)
        * Are drivers/libfprint/fprintd really in agreement here?
        */
       if (g_error_matches (error, FP_DEVICE_ERROR, FP_DEVICE_ERROR_PROTO))
+        return "verify-disconnected";
+      else if (g_error_matches (error, FP_DEVICE_ERROR, FP_DEVICE_ERROR_REMOVED))
+        return "verify-disconnected";
+      else if (g_error_matches (error, FP_DEVICE_ERROR, FP_DEVICE_ERROR_TOO_HOT))
         return "verify-disconnected";
       else if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED) ||
                g_error_matches (error, FP_DEVICE_ERROR, FP_DEVICE_ERROR_DATA_NOT_FOUND))
@@ -647,6 +654,9 @@ enroll_result_to_name (gboolean completed, gboolean enrolled, GError *error)
         case FP_DEVICE_RETRY_REMOVE_FINGER:
           return "enroll-remove-and-retry";
 
+        case FP_DEVICE_RETRY_TOO_FAST:
+          return "enroll-too-fast";
+
         default:
           return "enroll-retry-scan";
         }
@@ -658,8 +668,14 @@ enroll_result_to_name (gboolean completed, gboolean enrolled, GError *error)
        */
       if (g_error_matches (error, FP_DEVICE_ERROR, FP_DEVICE_ERROR_PROTO))
         return "enroll-disconnected";
+      else if (g_error_matches (error, FP_DEVICE_ERROR, FP_DEVICE_ERROR_REMOVED))
+        return "enroll-disconnected";
+      else if (g_error_matches (error, FP_DEVICE_ERROR, FP_DEVICE_ERROR_TOO_HOT))
+        return "enroll-disconnected";
       else if (g_error_matches (error, FP_DEVICE_ERROR, FP_DEVICE_ERROR_DATA_FULL))
         return "enroll-data-full";
+      else if (g_error_matches (error, FP_DEVICE_ERROR, FP_DEVICE_ERROR_DATA_DUPLICATE))
+        return "enroll-duplicate";
       else if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
         return "enroll-failed";
 

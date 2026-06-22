@@ -1619,7 +1619,7 @@ class FPrintdVirtualDeviceTest(FPrintdVirtualDeviceBaseTest):
 
         # Now remove the device while we are enrolling, which will cause an error
         self.send_remove()
-        self.wait_for_result(expected='enroll-unknown-error')
+        self.wait_for_result(expected='enroll-disconnected')
 
         # The device will still be there now until it is released
         devices = self.manager.GetDevices()
@@ -2458,6 +2458,9 @@ class FPrintdVirtualDeviceEnrollTests(FPrintdVirtualDeviceBaseTest):
     def test_enroll_retry_too_short(self):
         self.assertEnrollRetry(FPrint.DeviceRetry.TOO_SHORT, 'enroll-swipe-too-short')
 
+    def test_enroll_retry_too_fast(self):
+        self.assertEnrollRetry(FPrint.DeviceRetry.TOO_FAST, 'enroll-too-fast')
+
     def test_enroll_retry_remove_finger(self):
         self.assertEnrollRetry(FPrint.DeviceRetry.REMOVE_FINGER, 'enroll-remove-and-retry')
 
@@ -2482,6 +2485,12 @@ class FPrintdVirtualDeviceEnrollTests(FPrintdVirtualDeviceBaseTest):
     def test_enroll_error_proto(self):
         self.assertEnrollError(FPrint.DeviceError.PROTO, 'enroll-disconnected')
 
+    def test_enroll_error_too_hot(self):
+        self.assertEnrollError(FPrint.DeviceError.TOO_HOT, 'enroll-disconnected')
+
+    def test_enroll_error_removed(self):
+        self.assertEnrollError(FPrint.DeviceError.REMOVED, 'enroll-disconnected')
+
     def test_enroll_error_data_invalid(self):
         self.assertEnrollError(FPrint.DeviceError.DATA_INVALID, 'enroll-unknown-error')
 
@@ -2493,6 +2502,9 @@ class FPrintdVirtualDeviceEnrollTests(FPrintdVirtualDeviceBaseTest):
 
     def test_enroll_error_data_full(self):
         self.assertEnrollError(FPrint.DeviceError.DATA_FULL, 'enroll-data-full')
+
+    def test_enroll_error_data_duplicate(self):
+        self.assertEnrollError(FPrint.DeviceError.DATA_DUPLICATE, 'enroll-duplicate')
 
     def test_enroll_already_enrolled_finger(self):
         self.enroll_image('whorl', start=False)
@@ -2740,6 +2752,9 @@ class FPrintdVirtualDeviceVerificationTests(FPrintdVirtualDeviceBaseTest):
     def test_verify_retry_center_finger(self):
         self.assertVerifyRetry(FPrint.DeviceRetry.CENTER_FINGER, 'verify-finger-not-centered')
 
+    def test_verify_retry_too_fast(self):
+        self.assertVerifyRetry(FPrint.DeviceRetry.TOO_FAST, 'verify-too-fast')
+
     def test_verify_error_general(self):
         self.assertVerifyError(FPrint.DeviceError.GENERAL, 'verify-unknown-error')
 
@@ -2757,6 +2772,12 @@ class FPrintdVirtualDeviceVerificationTests(FPrintdVirtualDeviceBaseTest):
 
     def test_verify_error_proto(self):
         self.assertVerifyError(FPrint.DeviceError.PROTO, 'verify-disconnected')
+
+    def test_verify_error_too_hot(self):
+        self.assertVerifyError(FPrint.DeviceError.TOO_HOT, 'verify-disconnected')
+
+    def test_verify_error_removed(self):
+        self.assertVerifyError(FPrint.DeviceError.REMOVED, 'verify-disconnected')
 
     def test_verify_error_data_invalid(self):
         self.assertVerifyError(FPrint.DeviceError.DATA_INVALID, 'verify-unknown-error')

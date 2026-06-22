@@ -1,0 +1,111 @@
+From: Yuri Chornoivan <yurchor@ukr.net>
+Date: Wed, 2 Apr 2025 09:34:14 +0000
+Subject: Translated using Weblate (Ukrainian)
+
+Currently translated at 100.0% (67 of 67 strings)
+
+Co-authored-by: Yuri Chornoivan <yurchor@ukr.net>
+Translate-URL: https://translate.fedoraproject.org/projects/fprintd/fprintd/uk/
+Translation: fprintd/fprintd
+---
+ po/uk.po | 42 +++++++++++++++++++++---------------------
+ 1 file changed, 21 insertions(+), 21 deletions(-)
+
+diff --git a/po/uk.po b/po/uk.po
+index 0913973..2cdc7e9 100644
+--- a/po/uk.po
++++ b/po/uk.po
+@@ -4,13 +4,13 @@
+ #
+ # Translators:
+ # Richard Hughes <richard@hughsie.com>, 2011
+-# Yuri Chornoivan <yurchor@ukr.net>, 2009, 2010, 2011, 2012, 2021.
++# Yuri Chornoivan <yurchor@ukr.net>, 2009, 2010, 2011, 2012, 2021, 2025.
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: fprintd\n"
+ "Report-Msgid-Bugs-To: \n"
+-"POT-Creation-Date: 2025-04-02 09:49+0000\n"
+-"PO-Revision-Date: 2021-12-04 09:16+0000\n"
++"POT-Creation-Date: 2025-02-20 20:16+0000\n"
++"PO-Revision-Date: 2025-04-02 09:34+0000\n"
+ "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+ "Language-Team: Ukrainian <https://translate.fedoraproject.org/projects/"
+ "fprintd/fprintd/uk/>\n"
+@@ -18,11 +18,11 @@ msgstr ""
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+-"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+-"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+-"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+-"X-Generator: Weblate 4.9.1\n"
++"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 "
++"? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > "
++"14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % "
++"100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
++"X-Generator: Weblate 5.10.4\n"
+ 
+ #: data/net.reactivated.fprint.device.policy.in:13
+ msgid "Verify a fingerprint"
+@@ -280,46 +280,46 @@ msgstr ""
+ "Ваш палець було розташовано не у центрі, спробуйте натиснути пальцем ще раз"
+ 
+ #: pam/fingerprint-strings.h:181 pam/fingerprint-strings.h:227
+-#, fuzzy
+-#| msgid "Your finger was not centered, try swiping your finger again"
+ msgid "Your finger was not centered, try touching the sensor again"
+ msgstr ""
+-"Ваш палець було розташовано не у центрі, спробуйте натиснути пальцем ще раз"
++"Ваш палець було розташовано не у центрі, спробуйте торкнутися датчика ще раз"
+ 
+ #: pam/fingerprint-strings.h:186 pam/fingerprint-strings.h:232
+ msgid "Remove your finger, and try swiping your finger again"
+ msgstr "Приберіть ваш палець і повторіть спробу натискання"
+ 
+ #: pam/fingerprint-strings.h:188 pam/fingerprint-strings.h:234
+-#, fuzzy
+-#| msgid "Remove your finger, and try swiping your finger again"
+ msgid "Remove your finger, and try touching the sensor again"
+-msgstr "Приберіть ваш палець і повторіть спробу натискання"
++msgstr "Приберіть ваш палець і повторіть спробу торкнутися датчика"
+ 
+ #: pam/fingerprint-strings.h:193 pam/fingerprint-strings.h:239
+-#, fuzzy
+-#| msgid "Swipe was too short, try again"
+ msgid "Swipe was too fast, try again"
+-msgstr "Натискання було занадто коротким, повторіть спробу"
++msgstr "Натискання було занадто швидким, повторіть спробу"
+ 
+ #: pam/fingerprint-strings.h:195 pam/fingerprint-strings.h:241
+-#, fuzzy
+-#| msgid "Swipe was too short, try again"
+ msgid "Finger scan was too fast, try again"
+-msgstr "Натискання було занадто коротким, повторіть спробу"
++msgstr "Сканування відбитка було надто швидким, повторіть спробу"
+ 
+ #: pam/fingerprint-strings.h:199
+ msgid "An unexpected error happened during fingerprint verification"
+ msgstr ""
+ 
++#: pam/fingerprint-strings.h:199
++msgid "An unexpected error happened during finger verification"
++msgstr "Під час перевірки відбитка сталася неочікувана помилка"
++
+ #: pam/fingerprint-strings.h:244
+ msgid "The fingerprint has been already enrolled. Try using another finger."
+-msgstr ""
++msgstr "Відбиток вже зареєстровано. Спробуйте інший палець."
+ 
+ #: pam/fingerprint-strings.h:248
+ msgid "An unexpected error happened during fingerprint enrollment"
+ msgstr ""
+ 
++#: pam/fingerprint-strings.h:248
++msgid "An unexpected error happened during finger enrollment"
++msgstr "Під час реєстрації відбитка сталася неочікувана помилка"
++
+ #: pam/pam_fprintd.c:584
+ msgid "Verification timed out"
+ msgstr "Перевищено час перевірки"

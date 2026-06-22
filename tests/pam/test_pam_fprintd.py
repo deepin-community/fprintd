@@ -55,6 +55,8 @@ class TestPamFprintd(dbusmock.DBusTestCase):
 
     @classmethod
     def setUpClass(klass):
+        dbusmock.DBusTestCase.setUpClass()
+
         klass.start_system_bus()
         klass.start_monitor()
         klass.dbus_con = klass.get_dbus(True)
@@ -72,7 +74,10 @@ class TestPamFprintd(dbusmock.DBusTestCase):
         # Remove pam wrapper files, as they may break other tests
         [shutil.rmtree(i) for i in glob.glob('/tmp/pam.[0-9A-z]')]
 
+        dbusmock.DBusTestCase.tearDownClass()
+
     def setUp(self):
+        super().setUp()
         (self.p_mock, self.obj_fprintd_manager) = self.spawn_server_template(
             self.template_name, {})
         self.obj_fprintd_mock = dbus.Interface(self.obj_fprintd_manager, 'net.reactivated.Fprint.Manager.Mock')
@@ -80,6 +85,7 @@ class TestPamFprintd(dbusmock.DBusTestCase):
     def tearDown(self):
         self.p_mock.terminate()
         self.p_mock.wait()
+        super().tearDown()
 
     def setup_device(self):
         device_path = self.obj_fprintd_mock.AddDevice('FDO Trigger Finger Laser Reader', 3, 'swipe', False)

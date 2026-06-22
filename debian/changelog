@@ -1,8 +1,30 @@
-fprintd (1.94.3-1deepin1) unstable; urgency=medium
+fprintd (1.94.5-2) unstable; urgency=medium
 
-  * Add dep valgrind
+  * debian/patches: Translation updates
+    Also synchronize the potfile with upstream changes
 
- -- xiangzelong <xiangzelong@deepin.org>  Wed, 29 May 2024 17:30:40 +0800
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Wed, 02 Apr 2025 13:50:18 +0200
+
+fprintd (1.94.5-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/control: Bump build dependency on libfprint 1.94.9
+  * debian/patches: Drop, applied upstream
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Thu, 20 Feb 2025 21:50:08 +0100
+
+fprintd (1.94.4-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/watch: Update to work with newer gitlab
+    Dropped support for old versions syntax, but it's not something we use for
+  * debian/control: Bump build dependency on GLib 2.64
+  * d/p: Add upstream patches to fix PAM tests timeouts
+  * debian/rules: Do not ignore PAM tests
+  * debian/fprintd.postinst: Drop, it's unneeded
+  * debian/control: Update Standards Version to 4.7.0 (no change required)
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Thu, 05 Sep 2024 04:36:53 +0200
 
 fprintd (1.94.3-1) unstable; urgency=medium
 

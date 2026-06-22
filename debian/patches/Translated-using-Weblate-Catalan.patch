@@ -1,0 +1,101 @@
+From: Weblate <noreply@weblate.org>
+Date: Mon, 31 Mar 2025 18:53:42 +0000
+Subject: Translated using Weblate (Catalan)
+
+Currently translated at 100.0% (60 of 60 strings)
+
+Co-authored-by: Josep M. Ferrer <txemaq@gmail.com>
+Co-authored-by: Weblate <noreply@weblate.org>
+Translate-URL: https://translate.fedoraproject.org/projects/fprintd/fprintd/ca/
+Translation: fprintd/fprintd
+---
+ po/ca.po | 31 ++++++++++++++-----------------
+ 1 file changed, 14 insertions(+), 17 deletions(-)
+
+diff --git a/po/ca.po b/po/ca.po
+index ee8c621..87c75a2 100644
+--- a/po/ca.po
++++ b/po/ca.po
+@@ -5,21 +5,22 @@
+ # Translators:
+ # Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2015
+ # xavier <catala.xavier@gmail.com>, 2013
++# "Josep M. Ferrer" <txemaq@gmail.com>, 2024.
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: fprintd\n"
+ "Report-Msgid-Bugs-To: \n"
+ "POT-Creation-Date: 2021-12-02 10:58+0100\n"
+-"PO-Revision-Date: 2021-08-15 14:02+0200\n"
+-"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
+-"Language-Team: Catalan (http://www.transifex.com/freedesktop/fprintd/"
+-"language/ca/)\n"
++"PO-Revision-Date: 2024-10-11 20:38+0000\n"
++"Last-Translator: \"Josep M. Ferrer\" <txemaq@gmail.com>\n"
++"Language-Team: Catalan <https://translate.fedoraproject.org/projects/fprintd/"
++"fprintd/ca/>\n"
+ "Language: ca\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+-"X-Generator: Poedit 2.3\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++"X-Generator: Weblate 5.7.2\n"
+ 
+ #: data/net.reactivated.fprint.device.policy.in:13
+ msgid "Verify a fingerprint"
+@@ -30,25 +31,21 @@ msgid "Privileges are required to verify fingerprints."
+ msgstr "Es requereixen privilegis per verificar empremtes."
+ 
+ #: data/net.reactivated.fprint.device.policy.in:23
+-#, fuzzy
+ msgid "Enroll or Delete fingerprints"
+-msgstr "Inscriu empremtes noves"
++msgstr "Inscriu o suprimeix empremtes"
+ 
+ #: data/net.reactivated.fprint.device.policy.in:24
+-#, fuzzy
+ msgid "Privileges are required to enroll or delete fingerprints."
+-msgstr "Es requereixen privilegis per inscriure empremtes noves."
++msgstr "Es requereixen privilegis per inscriure o suprimir empremtes."
+ 
+ #: data/net.reactivated.fprint.device.policy.in:33
+-#, fuzzy
+ msgid "Select a user to manage fingerprints for"
+-msgstr "Selecciona un usuari per inscriure"
++msgstr "Seleccioneu un usuari per al qual gestionar les empremtes"
+ 
+ #: data/net.reactivated.fprint.device.policy.in:34
+-#, fuzzy
+ msgid "Privileges are required to manage fingerprints for other users."
+ msgstr ""
+-"Es requereixen privilegis per inscriure noves empremtes per a altres usuaris."
++"Es requereixen privilegis per a gestionar les empremtes per a altres usuaris."
+ 
+ #: src/device.c:783
+ #, c-format
+@@ -130,7 +127,7 @@ msgstr "Passeu el dit del mig esquerre pel lector d'empremtes"
+ #: pam/fingerprint-strings.h:68
+ #, c-format
+ msgid "Swipe your left middle finger across %s"
+-msgstr "Passeu el dit anular esquerre per %s"
++msgstr "Passeu el dit del mig esquerre per %s"
+ 
+ #: pam/fingerprint-strings.h:70
+ msgid "Place your left ring finger on the fingerprint reader"
+@@ -220,7 +217,7 @@ msgstr "Passeu el dit del mig dret pel lector d'empremtes"
+ #: pam/fingerprint-strings.h:93
+ #, c-format
+ msgid "Swipe your right middle finger across %s"
+-msgstr "Passeu el dit anular dret per %s"
++msgstr "Passeu el dit del mig dret per %s"
+ 
+ #: pam/fingerprint-strings.h:95
+ msgid "Place your right ring finger on the fingerprint reader"
+@@ -288,4 +285,4 @@ msgstr "L'empremta no coincideix"
+ 
+ #: pam/pam_fprintd.c:580
+ msgid "An unknown error occurred"
+-msgstr "Hi ha hagut un error desconegut"
++msgstr "S'ha produït un error desconegut"
