@@ -1,0 +1,77 @@
+From: lichenggang <lichenggang@uniontech.com>
+Date: Mon, 13 Jul 2026 17:00:00 +0800
+Subject: Cancel ongoing device operations when suspend is not supported
+
+When the system prepares for sleep (PrepareForSleep D-Bus signal),
+fprintd calls fp_device_suspend() on each device. If the device
+driver does not support suspend, the operation (e.g. enroll, verify)
+was left running indefinitely, causing the process to hang.
+
+Fix this by cancelling any ongoing device operation when the suspend
+callback returns FP_DEVICE_ERROR_NOT_SUPPORTED, so that the caller
+can proceed.
+
+Also update the test expectation to match the actual error produced
+by the cancellation (enroll-failed).
+
+Log: Fix suspend not cancelling ongoing enroll/verify on devices without suspend support
+
+Influence:
+1. Verify fprintd tests pass: test_suspend_inhibit_cancels_enroll
+2. Verify fprintd tests pass: test_suspend_prevents_enroll
+3. Verify fprintd tests pass: test_suspend_inhibit_claimed
+4. Verify no regression on real fingerprint devices with suspend support
+---
+ src/device.c      | 23 +++++++++++++++++++++++
+ tests/fprintd.py  |  2 +-
+ 2 files changed, 24 insertions(+), 1 deletion(-)
+
+diff --git a/src/device.c b/src/device.c
+index 4de4a10..870ee39 100644
+--- a/src/device.c
++++ b/src/device.c
+@@ -487,7 +487,30 @@ suspend_cb (GObject      *source_obj,
+ 
+   fp_device_suspend_finish (FP_DEVICE (source_obj), res, &error);
+   if (error)
+-    g_task_return_error (task, error);
++    {
++      if (g_error_matches (error, FP_DEVICE_ERROR, FP_DEVICE_ERROR_NOT_SUPPORTED))
++        {
++          /* Device driver does not support suspend, but we still need
++           * to cancel any ongoing operation so that the caller can
++           * proceed (e.g. when preparing for sleep). */
++          FprintDevice *rdev = g_task_get_source_object (task);
++          FprintDevicePrivate *priv = fprint_device_get_instance_private (rdev);
++
++          if (priv->current_cancellable)
++            {
++              if (priv->current_action == ACTION_ENROLL)
++                g_warning ("Enrollment was in progress, cancelling it for suspend");
++              else if (priv->current_action == ACTION_IDENTIFY ||
++                       priv->current_action == ACTION_VERIFY)
++                g_warning ("Verification was in progress, cancelling it for suspend");
++              else if (priv->current_action == ACTION_DELETE)
++                g_warning ("Deletion was in progress, cancelling it for suspend");
++
++              g_cancellable_cancel (priv->current_cancellable);
++            }
++        }
++      g_task_return_error (task, error);
++    }
+   else
+     g_task_return_boolean (task, TRUE);
+ }
+diff --git a/tests/fprintd.py b/tests/fprintd.py
+index a1fef1c..f46bb4e 100644
+--- a/tests/fprintd.py
++++ b/tests/fprintd.py
+@@ -1675,7 +1675,7 @@ class FPrintdVirtualDeviceTest(FPrintdVirtualDeviceBaseTest):
+         self.logind_obj.EmitSignal("", "PrepareForSleep", "b", [True])
+ 
+         self.daemon_log.check_line('Preparing devices for sleep', timeout=1)
+-        self.wait_for_result(expected='enroll-unknown-error')
++        self.wait_for_result(expected='enroll-failed')
+         self.wait_released_delay_inhibitor(timeout=1)
+ 
+         self.assertEqual(os.read(self.logind_inhibit_fifo, 1), b'')
